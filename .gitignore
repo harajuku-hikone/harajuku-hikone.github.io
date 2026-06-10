@@ -1,0 +1,11 @@
+# 個人情報を含むため非公開
+スキャンした書類.pdf
+
+# 公開しないファイル
+index_pop.html
+原学習塾/
+.claude/
+
+# macOS
+.DS_Store
+**/.DS_Store

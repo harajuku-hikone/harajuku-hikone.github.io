@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原学習塾｜彦根市の小中学生向け学習塾</title>
+<style>
+:root {
+  --navy: #12215a;
+  --blue: #1a3a8f;
+  --red: #c8102e;
+  --light: #f4f6fb;
+  --white: #ffffff;
+  --text: #222;
+  --muted: #666;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  background: var(--navy);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+header img.header-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.header-text h1 {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+}
+.header-text p {
+  color: #99aacc;
+  font-size: 12px;
+  margin-top: 2px;
+}
+header .header-tel {
+  margin-left: auto;
+  text-align: right;
+  color: white;
+}
+header .header-tel span {
+  display: block;
+  font-size: 11px;
+  color: #99aacc;
+}
+header .header-tel a {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* ===== ヒーロー ===== */
+.hero {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+.hero img.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: brightness(0.45);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(18,33,90,0.4) 0%, rgba(18,33,90,0.7) 100%);
+}
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 24px;
+  gap: 16px;
+}
+.hero-content img.hero-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.7);
+  object-fit: cover;
+}
+.hero-content h2 {
+  color: white;
+  font-size: 24px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  line-height: 1.4;
+}
+.hero-content p {
+  color: #ccd6f6;
+  font-size: 14px;
+}
+.hero-badge {
+  background: var(--red);
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 18px;
+  border-radius: 30px;
+  letter-spacing: 0.05em;
+}
+
+/* ===== セクション共通 ===== */
+section {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.section-title {
+  font-size: 20px;
+  color: var(--navy);
+  border-left: 5px solid var(--blue);
+  padding-left: 14px;
+  margin-bottom: 20px;
+  letter-spacing: 0.03em;
+}
+.section-title span {
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+/* ===== 悩みセクション ===== */
+.worry-section {
+  background: white;
+}
+.worry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.worry-item {
+  background: var(--light);
+  border-left: 4px solid var(--blue);
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ===== 特徴セクション ===== */
+.features-section {
+  background: var(--navy);
+  color: white;
+  max-width: 100%;
+  padding: 50px 20px;
+}
+.features-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.features-inner .section-title {
+  color: white;
+  border-color: var(--red);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.feature-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+}
+.feature-card .icon { font-size: 32px; margin-bottom: 12px; }
+.feature-card strong { display: block; font-size: 15px; margin-bottom: 6px; color: #ccd; }
+.feature-card p { font-size: 13px; color: #99aacc; }
+
+/* ===== 科目セクション ===== */
+.subjects-section { background: white; }
+.subject-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.subject-tags .label {
+  font-weight: bold;
+  color: var(--navy);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.tag {
+  background: var(--navy);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+.tag.red { background: var(--red); }
+.subject-row { margin-bottom: 16px; }
+
+/* ===== 時間割セクション ===== */
+.schedule-section { background: var(--light); }
+.schedule-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 600px) { .schedule-tables { grid-template-columns: 1fr; } }
+.schedule-table-wrap h3 {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px 8px 0 0;
+  font-size: 14px;
+}
+table.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  font-size: 13px;
+}
+table.schedule th, table.schedule td {
+  border: 1px solid #dde;
+  padding: 8px 6px;
+  text-align: center;
+}
+table.schedule th { background: #e8ecf8; color: var(--navy); font-weight: bold; }
+table.schedule td.day { font-weight: bold; color: var(--navy); }
+table.schedule tr.mid1 td { background: #fff0f0; }
+table.schedule tr.mid2 td { background: #fff8e0; }
+table.schedule tr.mid3 td { background: #e8f4ff; }
+table.schedule tr.elem td { background: #f0fff0; }
+
+/* ===== 料金セクション ===== */
+.pricing-section { background: white; }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+.pricing-card {
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.pricing-card-header {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 14px;
+}
+.pricing-card-header h3 { font-size: 16px; }
+.pricing-card-header .subjects { font-size: 12px; color: #99aacc; margin-top: 4px; }
+.pricing-card-body { padding: 16px; }
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.pricing-row:last-child { border-bottom: none; }
+.pricing-row .label { color: var(--muted); }
+.pricing-row .amount { font-weight: bold; color: var(--navy); }
+.pricing-total {
+  background: var(--light);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  margin-top: 12px;
+}
+.pricing-total .total-label { font-size: 12px; color: var(--muted); }
+.pricing-total .total-amount { font-size: 22px; font-weight: bold; color: var(--red); margin-top: 2px; }
+.pricing-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 16px;
+  padding: 12px;
+  background: #fffbf0;
+  border-left: 3px solid #f0a800;
+  border-radius: 4px;
+}
+.free-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ===== 教室セクション ===== */
+.classroom-section { background: var(--light); }
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: 210px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* ===== 講師セクション ===== */
+.teacher-section { background: white; }
+.teacher-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--light);
+  border-radius: 12px;
+  padding: 24px;
+}
+.teacher-logo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.teacher-info h3 { font-size: 18px; color: var(--navy); margin-bottom: 6px; }
+.teacher-info p { font-size: 14px; color: #444; }
+@media (max-width: 500px) { .teacher-card { flex-direction: column; text-align: center; } }
+
+/* ===== 卒業生の声セクション ===== */
+.voice-section { background: var(--light); }
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.voice-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  position: relative;
+}
+.voice-card::before {
+  content: "\201C";
+  font-size: 60px;
+  color: var(--blue);
+  opacity: 0.15;
+  position: absolute;
+  top: 4px;
+  left: 12px;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.voice-card p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.voice-card .voice-from {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+}
+
+/* ===== CTAセクション ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--navy) 0%, #1e4db7 100%);
+  padding: 50px 20px;
+  text-align: center;
+}
+.cta-section h2 { color: white; font-size: 22px; margin-bottom: 8px; }
+.cta-section .cta-sub { color: #99aacc; font-size: 14px; margin-bottom: 28px; }
+.cta-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.cta-card {
+  background: white;
+  border-radius: 14px;
+  padding: 22px 28px;
+  min-width: 220px;
+  text-align: center;
+}
+.cta-card .cta-icon { font-size: 28px; margin-bottom: 8px; }
+.cta-card .cta-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.cta-card a {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.cta-card a:hover { color: var(--red); }
+.cta-card .cta-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.cta-address {
+  color: #ccd;
+  font-size: 13px;
+  margin-top: 24px;
+}
+
+/* ===== フッター ===== */
+footer {
+  background: #0a1430;
+  color: #556;
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+}
+
+/* ===== 区切り ===== */
+.divider {
+  height: 4px;
+  background: linear-gradient(to right, var(--navy), var(--red), var(--navy));
+}
+
+/* ===== スクロール表示アニメーション ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ===== ヘッダー スクロール時 ===== */
+header.shrink { padding-top: 8px; padding-bottom: 8px; }
+header.shrink img.header-logo { width: 44px; height: 44px; }
+
+/* ===== トップへ戻るボタン ===== */
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 150;
+}
+.to-top.show { opacity: 0.92; visibility: visible; }
+@media (max-width: 600px) {
+  .to-top { bottom: 84px; right: 14px; width: 42px; height: 42px; }
+}
+
+/* ===== スマホ固定アクションバー ===== */
+.mobile-bar { display: none; }
+.mobile-bar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex: 1;
+  padding: 9px 0;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.3;
+}
+.mobile-bar a .mb-icon { font-size: 19px; }
+.mobile-bar a.mb-tel { background: var(--red); }
+.mobile-bar a.mb-line { background: #06C755; }
+
+/* ===== スマホ最適化 ===== */
+@media (max-width: 600px) {
+  body { line-height: 1.85; }
+
+  /* ヘッダー */
+  header { padding: 10px 14px; gap: 10px; }
+  header img.header-logo { width: 46px; height: 46px; }
+  .header-text h1 { font-size: 17px; letter-spacing: 0.04em; }
+  .header-text p { font-size: 10.5px; line-height: 1.4; }
+  header .header-tel span { font-size: 9px; }
+  header .header-tel a { font-size: 15px; }
+
+  /* ヒーロー */
+  .hero { height: 320px; }
+  .hero-content { padding: 20px 18px; }
+  .hero-content img.hero-logo { width: 90px; height: 90px; }
+  .hero-content h2 { font-size: 20px; line-height: 1.5; }
+  .hero-content p { font-size: 13px; }
+
+  /* セクション全般 */
+  section, .features-inner, .cta-section { padding-left: 16px; padding-right: 16px; }
+  section { padding-top: 32px; padding-bottom: 32px; }
+  .section-title { font-size: 18px; }
+  .features-section { padding: 36px 16px; }
+
+  /* 本文の読みやすさ */
+  .box, .worry-item, .pricing-row, .teacher-info p, .voice-card p { font-size: 15px; }
+
+  /* 時間割: 余白を詰める */
+  table.schedule th, table.schedule td { padding: 9px 4px; font-size: 13px; }
+
+  /* 講師カード: 写真をやや小さく */
+  .teacher-logo { width: 150px; height: 150px; }
+  .teacher-info p { text-align: left; }
+
+  /* フッターが固定バーに隠れないよう余白 */
+  footer { padding-bottom: 80px; }
+
+  /* 固定アクションバー表示 */
+  .mobile-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.25);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <img class="header-logo" src="ロゴ/A4679C2D-61CD-4B9D-8ED3-A11739E8C9B1.jpeg" alt="原学習塾ロゴ">
+  <div class="header-text">
+    <h1>原 学習塾</h1>
+    <p>彦根市原町｜小学生・中学生向け学習塾</p>
+  </div>
+  <div class="header-tel">
+    <span>お問い合わせ</span>
+    <a href="tel:0749260020">0749-26-0020</a>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <img class="hero-bg" src="写真/IMG_0149.jpg" alt="原学習塾 教室">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="ロゴ/A4158F92-82E0-489A-B1D9-6F8E504745FA.jpeg" alt="原学習塾">
+    <h2>勉強が苦手な子、<br>他の塾で合わなかった子へ</h2>
+    <p>今年で27年、一人ひとりに向き合ってきた少人数指導の塾です</p>
+    <div class="hero-badge">🎉 入学金 無料</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- お悩み -->
+<section class="worry-section">
+  <h2 class="section-title">こんなお悩みありませんか？</h2>
+  <div class="worry-grid">
+    <div class="worry-item">📉 塾に通っているのに成績が上がらない</div>
+    <div class="worry-item">👥 大人数の授業についていけない</div>
+    <div class="worry-item">🙋 質問しづらい雰囲気が苦手</div>
+    <div class="worry-item">📖 勉強のやり方がわからない</div>
+    <div class="worry-item">😔 やる気が出ない・続かない</div>
+    <div class="worry-item">🏫 他の塾では合わなかった</div>
+  </div>
+</section>
+
+<!-- 特徴 -->
+<div class="features-section">
+  <div class="features-inner">
+    <h2 class="section-title">原学習塾の特徴</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">👥</div>
+        <strong>少人数指導</strong>
+        <p>一人ひとりのペースに合わせて丁寧に対応します</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📅</div>
+        <strong>今年で27年の実績</strong>
+        <p>彦根市で27年にわたり地域の子どもたちを指導してきました</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎯</div>
+        <strong>基礎からやり直せる</strong>
+        <p>わからないところに戻って、しっかり理解できるまで教えます</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💴</div>
+        <strong>入学金0円</strong>
+        <p>無理なく通える良心的な料金設定。入学金はいただきません</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 科目 -->
+<section class="subjects-section">
+  <h2 class="section-title">指導科目</h2>
+  <div class="subject-row">
+    <div class="subject-tags">
+      <div class="label">小学4〜6年生</div>
+    </div>
+    <div class="subject-tags">
+      <span class="tag">算数</span>
+      <span class="tag">英語</span>
+    </div>
+  </div>
+  <div class="subject-row">
+    <div class="subject-tags">
+      <div class="label">中学1〜3年生</div>
+    </div>
+    <div class="subject-tags">
+      <span class="tag red">数学</span>
+      <span class="tag red">英語</span>
+      <span class="tag red">国語</span>
+      <span class="tag red">理科</span>
+      <span class="tag red">社会</span>
+    </div>
+  </div>
+</section>
+
+<!-- 時間割 -->
+<section class="schedule-section">
+  <h2 class="section-title">時間割 <span>令和8年度</span></h2>
+  <div class="schedule-tables">
+    <div class="schedule-table-wrap">
+      <h3>小学生</h3>
+      <table class="schedule">
+        <thead><tr><th>曜日</th><th>学年<br><small>18:00〜19:00</small></th><th>科目</th></tr></thead>
+        <tbody>
+          <tr class="elem"><td class="day">月</td><td>小6</td><td>算数</td></tr>
+          <tr class="elem"><td class="day">火</td><td>小5</td><td>算数</td></tr>
+          <tr><td class="day">水</td><td colspan="2">—</td></tr>
+          <tr class="elem"><td class="day">木</td><td>小6</td><td>算数</td></tr>
+          <tr class="elem"><td class="day">金</td><td>小5</td><td>算数</td></tr>
+          <tr><td class="day">土</td><td colspan="2">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="schedule-table-wrap">
+      <h3>中学生</h3>
+      <table class="schedule">
+        <thead><tr><th>曜日</th><th>1限目<br><small>19:15〜20:15</small></th><th>2限目<br><small>20:15〜21:15</small></th></tr></thead>
+        <tbody>
+          <tr class="mid1"><td class="day">月</td><td>中1 英語</td><td>中1 数学</td></tr>
+          <tr class="mid3"><td class="day">火</td><td>中3 英語</td><td>中3 数学</td></tr>
+          <tr class="mid2"><td class="day">水</td><td>中2 英語</td><td>中2 数学</td></tr>
+          <tr class="mid1"><td class="day">木</td><td>中1 英語</td><td>中1 数学</td></tr>
+          <tr class="mid3"><td class="day">金</td><td>中3 英語</td><td>中3 数学</td></tr>
+          <tr class="mid2"><td class="day">土</td><td>中2 英語</td><td>中2 数学</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="pricing-section">
+  <h2 class="section-title">料金 <span>令和8年度</span></h2>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-card-header">
+        <h3>小学生</h3>
+        <div class="subjects">算数・英語</div>
+      </div>
+      <div class="pricing-card-body">
+        <div class="pricing-row">
+          <span class="label">入学金</span>
+          <span class="amount"><span class="free-badge">無料</span></span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">月謝（1教科）</span>
+          <span class="amount">8,000円</span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">教材費（各1冊）</span>
+          <span class="amount">1,800円</span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">事務費（年間）※初月のみ</span>
+          <span class="amount">3,000円</span>
+        </div>
+        <div class="pricing-total">
+          <div class="total-label">初月合計の目安</div>
+          <div class="total-amount">12,800円</div>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-card-header">
+        <h3>中学生</h3>
+        <div class="subjects">数学・英語・国語・理科・社会</div>
+      </div>
+      <div class="pricing-card-body">
+        <div class="pricing-row">
+          <span class="label">入学金</span>
+          <span class="amount"><span class="free-badge">無料</span></span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">月謝（1教科）</span>
+          <span class="amount">9,000円</span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">月謝（2教科）</span>
+          <span class="amount">16,000円</span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">教材費（各1冊）</span>
+          <span class="amount">各 2,000円</span>
+        </div>
+        <div class="pricing-row">
+          <span class="label">事務費（年間）※初月のみ</span>
+          <span class="amount">4,000円</span>
+        </div>
+        <div class="pricing-total">
+          <div class="total-label">初月合計の目安（2教科）</div>
+          <div class="total-amount">24,000円</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pricing-note">
+    ※ 授業料は翌月分を前月末までに集金袋にて集金いたします。<br>
+    ※ 補習授業が必要な場合、別途料金をいただくことがあります。<br><br>
+    原学習塾では、地域の子どもたちが無理なく学習を続けられるよう、分かりやすく良心的な料金設定を心がけています。
+  </div>
+</section>
+
+<!-- 教室 -->
+<section class="classroom-section">
+  <h2 class="section-title">教室の様子</h2>
+  <div class="gallery">
+    <img src="写真/IMG_0148.jpg" alt="教室全景">
+    <img src="写真/IMG_0149.jpg" alt="黒板・教室">
+  </div>
+</section>
+
+<!-- 講師 -->
+<section class="teacher-section">
+  <h2 class="section-title">塾長紹介</h2>
+  <div class="teacher-card">
+    <img class="teacher-logo" src="塾長紹介_円形.png" alt="塾長 米川惠三">
+    <div class="teacher-info">
+      <h3>米川 惠三（よねかわ けいぞう）</h3>
+      <p>
+        彦根市で今年で27年、学習塾を続けてきました。<br>
+        勉強が苦手な子、他の塾で合わなかった子の力になりたいという思いで、<br>
+        一人ひとりに向き合っています。<br>
+        少人数だからこそできる、丁寧なサポートを大切にしています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 卒業生の声 -->
+<section class="voice-section">
+  <h2 class="section-title">卒業生の声</h2>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <p>苦手だった算数が、少しずつわかるようになり、テストの点数が上がりました。先生が丁寧に教えてくれるので、安心して質問できます。</p>
+      <div class="voice-from">小学生 保護者より</div>
+    </div>
+    <div class="voice-card">
+      <p>勉強習慣がまったくなかったのに、塾に通い始めてから毎日机に向かうようになりました。家での様子が変わって驚いています。</p>
+      <div class="voice-from">中学生 保護者より</div>
+    </div>
+    <div class="voice-card">
+      <p>他の塾では授業についていけず落ち込んでいましたが、原学習塾の少人数指導でわからないところをしっかり教えてもらえて自信がつきました。</p>
+      <div class="voice-from">中学生 保護者より</div>
+    </div>
+    <div class="voice-card">
+      <p>学校の授業がわかるようになったと子どもが喜んでいます。先生が一人ひとりに寄り添ってくださる姿勢がとても心強いです。</p>
+      <div class="voice-from">小学生 保護者より</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <h2>お問い合わせ・体験申込</h2>
+  <p class="cta-sub">体験・見学も受け付けています。お気軽にご連絡ください。</p>
+  <div class="cta-cards">
+    <div class="cta-card">
+      <div class="cta-icon">📞</div>
+      <div class="cta-label">教室電話</div>
+      <a href="tel:0749260020">0749-26-0020</a>
+      <div class="cta-note">受付時間：授業日 PM5時〜</div>
+    </div>
+    <div class="cta-card">
+      <div class="cta-label" style="margin-bottom:10px;">LINEでお問い合わせ</div>
+      <img src="Line_QR.jpeg" alt="LINE QRコード" style="width:120px;height:120px;object-fit:contain;border-radius:8px;">
+      <div class="cta-note" style="margin-top:8px;">QRコードを読み取って<br>友だち追加してください</div>
+    </div>
+  </div>
+  <div class="cta-address">
+    📍 滋賀県彦根市原町180-48
+  </div>
+</div>
+
+<footer>
+  <p>© 原学習塾｜彦根市原町180-48　TEL 0749-26-0020</p>
+</footer>
+
+<!-- スマホ用 固定アクションバー -->
+<div class="mobile-bar">
+  <a class="mb-tel" href="tel:0749260020">
+    <span class="mb-icon">📞</span>
+    <span>電話する</span>
+  </a>
+  <a class="mb-line" href="#contact">
+    <span class="mb-icon">💬</span>
+    <span>LINEで相談</span>
+  </a>
+</div>
+
+<!-- トップへ戻る -->
+<button class="to-top" id="toTop" aria-label="ページ上部へ戻る">↑</button>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ===== スクロールで各要素をふわっと表示 ===== */
+  var revealTargets = document.querySelectorAll(
+    ".section-title, .worry-item, .feature-card, .pricing-card, " +
+    ".gallery img, .teacher-card, .voice-card, .schedule-table-wrap, " +
+    ".subject-block, .cta-cards"
+  );
+  revealTargets.forEach(function (el) { el.classList.add("reveal"); });
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealTargets.forEach(function (el) { io.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  /* ===== スムーズスクロール（ページ内リンク） ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var id = link.getAttribute("href");
+      if (id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  /* ===== スクロールに応じたヘッダー＆トップボタン ===== */
+  var header = document.querySelector("header");
+  var toTop = document.getElementById("toTop");
+
+  function onScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if (header) header.classList.toggle("shrink", y > 60);
+    if (toTop) toTop.classList.toggle("show", y > 500);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ===== トップへ戻る ===== */
+  if (toTop) {
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
