@@ -232,6 +232,66 @@ section {
   color: var(--navy);
 }
 
+/* ===== 月謝ハイライト ===== */
+.fee-highlight {
+  background: var(--navy);
+  color: white;
+  padding: 36px 20px;
+  text-align: center;
+}
+.fee-highlight .fee-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.fee-highlight .fee-lead {
+  font-size: 13px;
+  color: #aac;
+  margin-bottom: 20px;
+}
+.fee-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.fee-card {
+  background: white;
+  color: var(--navy);
+  border-radius: 14px;
+  padding: 20px 28px;
+  min-width: 200px;
+  flex: 1;
+}
+.fee-card .fee-grade { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
+.fee-card .fee-amount {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--red);
+  line-height: 1.2;
+}
+.fee-card .fee-amount small { font-size: 15px; color: var(--navy); font-weight: bold; }
+.fee-card .fee-unit { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.fee-highlight .fee-free {
+  display: inline-block;
+  margin-top: 18px;
+  background: var(--red);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 7px 22px;
+  border-radius: 30px;
+}
+.fee-highlight .fee-link {
+  display: block;
+  margin-top: 16px;
+  color: #aac;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
 /* ===== 特徴セクション ===== */
 .features-section {
   background: var(--navy);
@@ -666,6 +726,26 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
 </div>
 <div class="divider"></div>
 
+<!-- 月謝ハイライト -->
+<div class="fee-highlight">
+  <div class="fee-title">わかりやすい月謝</div>
+  <div class="fee-lead">入学金は無料。無理なく続けられる料金です。</div>
+  <div class="fee-cards">
+    <div class="fee-card">
+      <div class="fee-grade">🌸 小学生</div>
+      <div class="fee-amount">8,000<small>円</small></div>
+      <div class="fee-unit">月謝（1教科）</div>
+    </div>
+    <div class="fee-card">
+      <div class="fee-grade">🔥 中学生</div>
+      <div class="fee-amount">9,000<small>円〜</small></div>
+      <div class="fee-unit">月謝（1教科）／2教科 16,000円</div>
+    </div>
+  </div>
+  <span class="fee-free">🎉 入学金 0円</span>
+  <a class="fee-link" href="#pricing">教材費・事務費など詳しい料金を見る ▼</a>
+</div>
+
 <!-- お悩み -->
 <section class="worry-section">
   <h2 class="section-title">こんなお悩みありませんか？</h2>
@@ -783,7 +863,7 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
 </section>
 
 <!-- 料金 -->
-<section class="pricing-section">
+<section class="pricing-section" id="pricing">
   <h2 class="section-title">料金 <span>令和8年度</span></h2>
   <div class="pricing-grid">
     <div class="pricing-card">
