@@ -194,6 +194,44 @@ section {
   font-size: 14px;
 }
 
+/* ===== こんな子におすすめ ===== */
+.recommend-section { background: var(--light); }
+.recommend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.recommend-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.recommend-item .check {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+.recommend-note {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--navy);
+}
+
 /* ===== 特徴セクション ===== */
 .features-section {
   background: var(--navy);
@@ -641,6 +679,19 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
   </div>
 </section>
 
+<!-- こんな子におすすめ -->
+<section class="recommend-section">
+  <h2 class="section-title">こんな子におすすめ</h2>
+  <div class="recommend-list">
+    <div class="recommend-item"><span class="check">✓</span>学校の授業についていけてるか不安</div>
+    <div class="recommend-item"><span class="check">✓</span>勉強のやり方がわからない</div>
+    <div class="recommend-item"><span class="check">✓</span>基礎からやり直したい</div>
+    <div class="recommend-item"><span class="check">✓</span>大人数の塾が苦手</div>
+    <div class="recommend-item"><span class="check">✓</span>定期テスト対策をしたい</div>
+  </div>
+  <p class="recommend-note">ひとつでも当てはまったら、お気軽にご相談ください。</p>
+</section>
+
 <!-- 特徴 -->
 <div class="features-section">
   <div class="features-inner">
@@ -901,7 +952,7 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
 
   /* ===== スクロールで各要素をふわっと表示 ===== */
   var revealTargets = document.querySelectorAll(
-    ".section-title, .worry-item, .feature-card, .pricing-card, " +
+    ".section-title, .worry-item, .recommend-item, .feature-card, .pricing-card, " +
     ".gallery img, .teacher-card, .voice-card, .schedule-table-wrap, " +
     ".subject-block, .cta-cards"
   );
