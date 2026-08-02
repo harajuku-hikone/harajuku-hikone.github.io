@@ -47,13 +47,13 @@
 </script>
 <style>
 :root {
-  --navy: #12215a;
-  --blue: #1a3a8f;
-  --red: #c8102e;
-  --light: #f4f6fb;
+  --navy: #47795c;   /* やさしい深緑（メイン濃色） */
+  --blue: #5a8f6f;   /* やわらかい緑（アクセント） */
+  --red: #ef8b3c;    /* あたたかいオレンジ */
+  --light: #fbf5ea;  /* クリーム（生成り） */
   --white: #ffffff;
-  --text: #222;
-  --muted: #666;
+  --text: #4a4038;   /* やわらかい茶系の文字色 */
+  --muted: #8a7f74;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -90,7 +90,7 @@ header img.header-logo {
   letter-spacing: 0.08em;
 }
 .header-text p {
-  color: #99aacc;
+  color: #cfe3d6;
   font-size: 12px;
   margin-top: 2px;
 }
@@ -102,7 +102,7 @@ header .header-tel {
 header .header-tel span {
   display: block;
   font-size: 11px;
-  color: #99aacc;
+  color: #cfe3d6;
 }
 header .header-tel a {
   color: white;
@@ -129,7 +129,7 @@ header .header-tel a {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(18,33,90,0.4) 0%, rgba(18,33,90,0.7) 100%);
+  background: linear-gradient(to bottom, rgba(71,121,92,0.35) 0%, rgba(71,121,92,0.72) 100%);
 }
 .hero-content {
   position: absolute;
@@ -156,7 +156,7 @@ header .header-tel a {
   line-height: 1.4;
 }
 .hero-content p {
-  color: #ccd6f6;
+  color: #e6f0e9;
   font-size: 14px;
 }
 .hero-badge {
@@ -231,7 +231,7 @@ section {
   background: var(--light);
   border-left: 4px solid var(--blue);
   padding: 14px 16px;
-  border-radius: 6px;
+  border-radius: 14px;
   font-size: 14px;
 }
 
@@ -275,11 +275,19 @@ section {
 
 /* ===== 月謝ハイライト ===== */
 .fee-highlight {
-  background: var(--navy);
-  color: white;
+  background: var(--light);
+  color: var(--text);
   padding: 36px 20px;
   text-align: center;
+  border-bottom: 1px solid #efe4d2;
 }
+.fee-highlight .fee-title { color: var(--navy); }
+.fee-highlight .fee-lead { color: var(--muted) !important; }
+.fee-card {
+  border: 2px solid #ecdfc9;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+.fee-highlight .fee-link { color: var(--navy) !important; }
 .fee-highlight .fee-title {
   font-size: 18px;
   font-weight: bold;
@@ -287,7 +295,7 @@ section {
 }
 .fee-highlight .fee-lead {
   font-size: 13px;
-  color: #aac;
+  color: #cfe3d6;
   margin-bottom: 20px;
 }
 .fee-cards {
@@ -328,7 +336,7 @@ section {
 .fee-highlight .fee-link {
   display: block;
   margin-top: 16px;
-  color: #aac;
+  color: #cfe3d6;
   font-size: 13px;
   text-decoration: underline;
 }
@@ -355,15 +363,16 @@ section {
   margin-top: 20px;
 }
 .feature-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: var(--white);
+  border: 1px solid #e7ddcb;
   border-radius: 12px;
   padding: 24px 16px;
   text-align: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 .feature-card .icon { font-size: 32px; margin-bottom: 12px; }
-.feature-card strong { display: block; font-size: 15px; margin-bottom: 6px; color: #ccd; }
-.feature-card p { font-size: 13px; color: #99aacc; }
+.feature-card strong { display: block; font-size: 15px; margin-bottom: 6px; color: var(--navy); }
+.feature-card p { font-size: 13px; color: var(--muted); }
 
 /* ===== 科目セクション ===== */
 .subjects-section { background: white; }
@@ -414,16 +423,16 @@ table.schedule {
   font-size: 13px;
 }
 table.schedule th, table.schedule td {
-  border: 1px solid #dde;
+  border: 1px solid #e8ded0;
   padding: 8px 6px;
   text-align: center;
 }
-table.schedule th { background: #e8ecf8; color: var(--navy); font-weight: bold; }
+table.schedule th { background: #eaf3ec; color: var(--navy); font-weight: bold; }
 table.schedule td.day { font-weight: bold; color: var(--navy); }
-table.schedule tr.mid1 td { background: #fff0f0; }
-table.schedule tr.mid2 td { background: #fff8e0; }
-table.schedule tr.mid3 td { background: #e8f4ff; }
-table.schedule tr.elem td { background: #f0fff0; }
+table.schedule tr.mid1 td { background: #fdf1e6; }
+table.schedule tr.mid2 td { background: #fbf7e4; }
+table.schedule tr.mid3 td { background: #eaf3ec; }
+table.schedule tr.elem td { background: #f3f9f0; }
 
 /* ===== 料金セクション ===== */
 .pricing-section { background: white; }
@@ -445,7 +454,7 @@ table.schedule tr.elem td { background: #f0fff0; }
   padding: 14px;
 }
 .pricing-card-header h3 { font-size: 16px; }
-.pricing-card-header .subjects { font-size: 12px; color: #99aacc; margin-top: 4px; }
+.pricing-card-header .subjects { font-size: 12px; color: #cfe3d6; margin-top: 4px; }
 .pricing-card-body { padding: 16px; }
 .pricing-row {
   display: flex;
@@ -472,8 +481,8 @@ table.schedule tr.elem td { background: #f0fff0; }
   color: var(--muted);
   margin-top: 16px;
   padding: 12px;
-  background: #fffbf0;
-  border-left: 3px solid #f0a800;
+  background: #fdf6e9;
+  border-left: 3px solid #e8a33d;
   border-radius: 4px;
 }
 .free-badge {
@@ -563,12 +572,12 @@ table.schedule tr.elem td { background: #f0fff0; }
 
 /* ===== CTAセクション ===== */
 .cta-section {
-  background: linear-gradient(135deg, var(--navy) 0%, #1e4db7 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, #6aa37f 100%);
   padding: 50px 20px;
   text-align: center;
 }
 .cta-section h2 { color: white; font-size: 22px; margin-bottom: 8px; }
-.cta-section .cta-sub { color: #99aacc; font-size: 14px; margin-bottom: 28px; }
+.cta-section .cta-sub { color: #cfe3d6; font-size: 14px; margin-bottom: 28px; }
 .cta-cards {
   display: flex;
   gap: 20px;
@@ -597,15 +606,15 @@ table.schedule tr.elem td { background: #f0fff0; }
 .cta-card a:hover { color: var(--red); }
 .cta-card .cta-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
 .cta-address {
-  color: #ccd;
+  color: #e6f0e9;
   font-size: 13px;
   margin-top: 24px;
 }
 
 /* ===== フッター ===== */
 footer {
-  background: #0a1430;
-  color: #556;
+  background: #3b6350;
+  color: #cfe3d6;
   text-align: center;
   padding: 16px;
   font-size: 12px;
@@ -616,6 +625,21 @@ footer {
   height: 4px;
   background: linear-gradient(to right, var(--navy), var(--red), var(--navy));
 }
+
+/* ===== アットホームな質感の調整 ===== */
+.section-title { border-left-width: 6px; border-radius: 2px; }
+.feature-card { border-radius: 18px; }
+.pricing-card { border-radius: 18px; border-width: 2px; }
+.voice-card { border-radius: 18px; }
+.recommend-item { border-radius: 16px; }
+.fee-card { border-radius: 18px; }
+.gallery img { border-radius: 18px; }
+.box { border-radius: 14px; }
+table.schedule { border-radius: 0 0 16px 16px; }
+.schedule-table-wrap h3 { border-radius: 16px 16px 0 0; }
+.teacher-card { border-radius: 20px; }
+.cta-card { border-radius: 18px; }
+.mobile-bar a.mb-tel { background: var(--red); }
 
 /* ===== スクロール表示アニメーション ===== */
 .reveal {
