@@ -47,13 +47,18 @@
 </script>
 <style>
 :root {
-  --navy: #47795c;   /* やさしい深緑（メイン濃色） */
-  --blue: #5a8f6f;   /* やわらかい緑（アクセント） */
-  --red: #ef8b3c;    /* あたたかいオレンジ */
-  --light: #fbf5ea;  /* クリーム（生成り） */
+  --navy: #2f6fb8;   /* 明るいブルー（メイン濃色） */
+  --blue: #37a3e0;   /* スカイブルー */
+  --red: #ff7b3d;    /* ポップなオレンジ */
+  --light: #fff8ec;  /* やわらかいクリーム */
   --white: #ffffff;
-  --text: #4a4038;   /* やわらかい茶系の文字色 */
-  --muted: #8a7f74;
+  --text: #3b3a38;
+  --muted: #857e78;
+  /* ポップアクセント */
+  --pop-yellow: #ffc93c;
+  --pop-pink: #ff6fa5;
+  --pop-green: #46c98b;
+  --pop-purple: #9b7bf0;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -62,6 +67,19 @@ body {
   color: var(--text);
   line-height: 1.8;
   -webkit-text-size-adjust: 100%;
+}
+
+/* ===== カラフルストライプ ===== */
+.stripe {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pop-yellow) 0px, var(--pop-yellow) 28px,
+    var(--red) 28px, var(--red) 56px,
+    var(--pop-pink) 56px, var(--pop-pink) 84px,
+    var(--blue) 84px, var(--blue) 112px,
+    var(--pop-green) 112px, var(--pop-green) 140px
+  );
 }
 
 /* ===== ヘッダー ===== */
@@ -74,8 +92,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+header img.header-logo { border-color: var(--pop-yellow) !important; }
 header img.header-logo {
   width: 56px;
   height: 56px;
@@ -129,7 +148,7 @@ header .header-tel a {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(71,121,92,0.35) 0%, rgba(71,121,92,0.72) 100%);
+  background: linear-gradient(135deg, rgba(47,111,184,0.55) 0%, rgba(155,123,240,0.45) 50%, rgba(70,201,139,0.5) 100%);
 }
 .hero-content {
   position: absolute;
@@ -613,8 +632,8 @@ table.schedule tr.elem td { background: #f3f9f0; }
 
 /* ===== フッター ===== */
 footer {
-  background: #3b6350;
-  color: #cfe3d6;
+  background: var(--navy);
+  color: #d6e8f7;
   text-align: center;
   padding: 16px;
   font-size: 12px;
@@ -622,8 +641,15 @@ footer {
 
 /* ===== 区切り ===== */
 .divider {
-  height: 4px;
-  background: linear-gradient(to right, var(--navy), var(--red), var(--navy));
+  height: 5px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pop-yellow) 0px, var(--pop-yellow) 24px,
+    var(--red) 24px, var(--red) 48px,
+    var(--pop-pink) 48px, var(--pop-pink) 72px,
+    var(--blue) 72px, var(--blue) 96px,
+    var(--pop-green) 96px, var(--pop-green) 120px
+  );
 }
 
 /* ===== アットホームな質感の調整 ===== */
@@ -640,6 +666,103 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .teacher-card { border-radius: 20px; }
 .cta-card { border-radius: 18px; }
 .mobile-bar a.mb-tel { background: var(--red); }
+
+/* ===== ポップ調整 ===== */
+/* セクション見出し：色分け＋丸みのある下線 */
+.section-title {
+  border-left: none;
+  padding-left: 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 68px; height: 5px;
+  border-radius: 5px;
+  background: var(--red);
+}
+.recommend-section .section-title::after { background: var(--pop-green); }
+.subjects-section .section-title::after { background: var(--pop-purple); }
+.schedule-section .section-title::after { background: var(--blue); }
+.pricing-section .section-title::after { background: var(--pop-yellow); }
+.classroom-section .section-title::after { background: var(--pop-pink); }
+.teacher-section .section-title::after { background: var(--red); }
+.voice-section .section-title::after { background: var(--pop-green); }
+.features-inner .section-title::after { background: var(--pop-yellow); }
+
+/* お悩みカード：色をローテーション */
+.worry-item { border-left-width: 5px; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+.worry-item:nth-child(1) { border-left-color: var(--red); }
+.worry-item:nth-child(2) { border-left-color: var(--blue); }
+.worry-item:nth-child(3) { border-left-color: var(--pop-pink); }
+.worry-item:nth-child(4) { border-left-color: var(--pop-green); }
+.worry-item:nth-child(5) { border-left-color: var(--pop-purple); }
+.worry-item:nth-child(6) { border-left-color: var(--pop-yellow); }
+
+/* おすすめリスト：チェック丸を色分け */
+.recommend-item:nth-child(1) .check { background: var(--red); }
+.recommend-item:nth-child(2) .check { background: var(--blue); }
+.recommend-item:nth-child(3) .check { background: var(--pop-green); }
+.recommend-item:nth-child(4) .check { background: var(--pop-pink); }
+.recommend-item:nth-child(5) .check { background: var(--pop-purple); }
+
+/* 特徴カード：上部に色ライン */
+.feature-card { border-top: 5px solid var(--red); transition: transform 0.2s; }
+.feature-card:hover { transform: translateY(-4px); }
+.feature-card:nth-child(2) { border-top-color: var(--pop-yellow); }
+.feature-card:nth-child(3) { border-top-color: var(--pop-green); }
+.feature-card:nth-child(4) { border-top-color: var(--pop-pink); }
+
+/* 科目タグ：カラフルに */
+.tag { background: var(--blue); }
+.subject-tags .tag:nth-child(1) { background: var(--red); }
+.subject-tags .tag:nth-child(2) { background: var(--pop-green); }
+.subject-tags .tag:nth-child(3) { background: var(--pop-purple); }
+.subject-tags .tag:nth-child(4) { background: var(--blue); }
+.subject-tags .tag:nth-child(5) { background: var(--pop-pink); }
+.tag.red { background: var(--red); }
+
+/* 時間割：グラデーション見出し */
+.schedule-table-wrap:nth-child(1) h3 {
+  background: linear-gradient(90deg, var(--blue), var(--pop-purple));
+}
+.schedule-table-wrap:nth-child(2) h3 {
+  background: linear-gradient(90deg, var(--red), var(--pop-pink));
+}
+
+/* 料金カード：グラデーションヘッダー */
+.pricing-card { border: none; box-shadow: 0 4px 18px rgba(0,0,0,0.1); }
+.pricing-card:nth-child(1) .pricing-card-header {
+  background: linear-gradient(135deg, var(--blue), var(--pop-purple));
+}
+.pricing-card:nth-child(2) .pricing-card-header {
+  background: linear-gradient(135deg, var(--red), var(--pop-pink));
+}
+.pricing-total { background: linear-gradient(135deg, #fff6e6, #ffeef5); }
+.free-badge { background: linear-gradient(90deg, var(--pop-green), #2fae74); color: white; }
+
+/* 月謝ハイライト */
+.fee-card:nth-child(1) { border-color: var(--blue); }
+.fee-card:nth-child(2) { border-color: var(--red); }
+.fee-highlight .fee-free { background: linear-gradient(90deg, var(--red), var(--pop-pink)); }
+
+/* 卒業生の声 */
+.voice-card { box-shadow: 0 3px 14px rgba(0,0,0,0.07); }
+.voice-card::before { color: var(--pop-yellow); opacity: 0.5; }
+
+/* 塾長カード */
+.teacher-card { background: linear-gradient(135deg, #fff8ec, #eef7ff); border: 2px solid #ffe9c9; }
+.teacher-logo { border-color: var(--pop-yellow) !important; }
+
+/* CTA */
+.cta-section { background: linear-gradient(135deg, var(--red) 0%, var(--pop-pink) 100%); }
+.cta-section .cta-sub { color: rgba(255,255,255,0.92) !important; }
+.cta-address { color: rgba(255,255,255,0.95) !important; }
+
+/* トップへ戻るボタン */
+.to-top { background: var(--red); }
 
 /* ===== スクロール表示アニメーション ===== */
 .reveal {
@@ -758,6 +881,8 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
 </style>
 </head>
 <body>
+
+<div class="stripe"></div>
 
 <!-- ヘッダー -->
 <header>
@@ -1072,6 +1197,7 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
   </div>
 </div>
 
+<div class="stripe"></div>
 <footer>
   <p>© 原学習塾｜彦根市原町180-48　TEL 0749-26-0020</p>
 </footer>
