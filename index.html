@@ -47,20 +47,20 @@
 </script>
 <style>
 :root {
-  --navy: #776f66;   /* 上品な濃いグレージュ（メイン） */
-  --blue: #9a9288;   /* やわらかいグレージュ（サブ） */
-  --red: #a89684;    /* 落ち着いたベージュ（アクセント線） */
-  --light: #faf7f2;  /* 生成り（背景） */
+  --navy: #6e6a64;   /* 落ち着いたグレー（メイン） */
+  --blue: #97928b;   /* やわらかいグレー（サブ） */
+  --red: #b3aca3;    /* うすいグレージュ（アクセント線） */
+  --light: #f7f6f4;  /* ほんのり生成りの淡いグレー（背景） */
   --white: #ffffff;
-  --text: #4f4a44;   /* やわらかいチャコール */
-  --muted: #918a82;
-  --cream-line: #e8e3db;  /* やさしい枠線 */
+  --text: #46433f;   /* やわらかいチャコール */
+  --muted: #8c8781;
+  --cream-line: #eae8e4;  /* やさしい枠線 */
   /* 旧アクセント色は同系色に統一 */
-  --pop-yellow: #c9bfae;
-  --pop-pink: #c4b8ac;
-  --pop-green: #a8a196;
-  --pop-sky: #aeaba4;
-  --pop-lavender: #a9a29a;
+  --pop-yellow: #cec9c1;
+  --pop-pink: #c7c1ba;
+  --pop-green: #97928b;
+  --pop-sky: #b0aca6;
+  --pop-lavender: #a8a49e;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -356,8 +356,8 @@ section {
 
 /* ===== 特徴セクション ===== */
 .features-section {
-  background: var(--navy);
-  color: white;
+  background: var(--light);
+  color: var(--text);
   max-width: 100%;
   padding: 50px 20px;
 }
@@ -366,7 +366,7 @@ section {
   margin: 0 auto;
 }
 .features-inner .section-title {
-  color: white;
+  color: var(--navy);
   border-color: var(--red);
 }
 .features-grid {
@@ -740,6 +740,44 @@ table.schedule tr.mid3 td { background: #fbf9f5; }
 
 /* トップへ戻るボタン */
 .to-top { background: var(--navy); }
+
+/* ===== 白ベースの清潔感 ===== */
+/* 交互の背景を白寄りに（区切りは細い線で表現） */
+.recommend-section,
+.schedule-section,
+.classroom-section,
+.voice-section,
+.features-section,
+.fee-highlight {
+  background: var(--white);
+  border-top: 1px solid var(--cream-line);
+}
+.worry-section,
+.subjects-section,
+.pricing-section,
+.teacher-section {
+  background: var(--white);
+  border-top: 1px solid var(--cream-line);
+}
+
+/* カード類は白地に細い線で軽やかに */
+.worry-item { background: var(--light); box-shadow: none; }
+.recommend-item { background: var(--light); box-shadow: none; }
+.feature-card { background: var(--white); box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.voice-card { background: var(--light); box-shadow: none; }
+.pricing-card { box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.fee-card { background: var(--white); box-shadow: none; }
+.teacher-card { background: var(--light); }
+.gallery img { box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+
+/* 余白を広げて抜け感を出す */
+section { padding: 52px 20px; }
+.features-section { padding: 52px 20px; }
+.fee-highlight { padding: 44px 20px; }
+
+/* 区切り線とヘッダー影を控えめに */
+.stripe, .divider { height: 1px; background: var(--cream-line); }
+header { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 
 /* ===== スクロール表示アニメーション ===== */
 .reveal {
