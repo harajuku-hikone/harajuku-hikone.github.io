@@ -47,18 +47,20 @@
 </script>
 <style>
 :root {
-  --navy: #2f6fb8;   /* 明るいブルー（メイン濃色） */
-  --blue: #37a3e0;   /* スカイブルー */
-  --red: #ff7b3d;    /* ポップなオレンジ */
-  --light: #fff8ec;  /* やわらかいクリーム */
+  --navy: #e08a4f;   /* あたたかいオレンジ（メイン） */
+  --blue: #5cb5a6;   /* やさしいミントグリーン */
+  --red: #ef7a5e;    /* やわらかいコーラル */
+  --light: #fff9f0;  /* クリーム地 */
   --white: #ffffff;
-  --text: #3b3a38;
-  --muted: #857e78;
-  /* ポップアクセント */
-  --pop-yellow: #ffc93c;
-  --pop-pink: #ff6fa5;
-  --pop-green: #46c98b;
-  --pop-purple: #9b7bf0;
+  --text: #55483f;   /* やわらかい焦茶 */
+  --muted: #93857a;
+  /* パステルのポップ差し色 */
+  --pop-yellow: #f7c95c;
+  --pop-pink: #f2a3b3;
+  --pop-green: #8ccfae;
+  --pop-sky: #8fc4e0;
+  --pop-lavender: #b7abdd;
+  --cream-line: #f0e2cf;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -69,17 +71,18 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* ===== カラフルストライプ ===== */
+/* ===== やわらかい水玉ライン ===== */
 .stripe {
-  height: 6px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--pop-yellow) 0px, var(--pop-yellow) 28px,
-    var(--red) 28px, var(--red) 56px,
-    var(--pop-pink) 56px, var(--pop-pink) 84px,
-    var(--blue) 84px, var(--blue) 112px,
-    var(--pop-green) 112px, var(--pop-green) 140px
-  );
+  height: 14px;
+  background-color: var(--light);
+  background-image:
+    radial-gradient(circle, var(--pop-yellow) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--pop-pink) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--pop-green) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--pop-sky) 3px, transparent 3.5px);
+  background-size: 48px 14px;
+  background-position: 0 center, 12px center, 24px center, 36px center;
+  background-repeat: repeat-x;
 }
 
 /* ===== ヘッダー ===== */
@@ -92,16 +95,15 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(160,110,60,0.22);
 }
-header img.header-logo { border-color: var(--pop-yellow) !important; }
 header img.header-logo {
   width: 56px;
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 3px solid var(--pop-yellow);
 }
 .header-text h1 {
   color: white;
@@ -109,7 +111,7 @@ header img.header-logo {
   letter-spacing: 0.08em;
 }
 .header-text p {
-  color: #cfe3d6;
+  color: #ffeeda;
   font-size: 12px;
   margin-top: 2px;
 }
@@ -121,7 +123,7 @@ header .header-tel {
 header .header-tel span {
   display: block;
   font-size: 11px;
-  color: #cfe3d6;
+  color: #ffeeda;
 }
 header .header-tel a {
   color: white;
@@ -148,7 +150,7 @@ header .header-tel a {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(47,111,184,0.55) 0%, rgba(155,123,240,0.45) 50%, rgba(70,201,139,0.5) 100%);
+  background: linear-gradient(135deg, rgba(120,80,50,0.62) 0%, rgba(200,130,80,0.5) 55%, rgba(140,95,60,0.6) 100%);
 }
 .hero-content {
   position: absolute;
@@ -175,7 +177,7 @@ header .header-tel a {
   line-height: 1.4;
 }
 .hero-content p {
-  color: #e6f0e9;
+  color: #fff1e2;
   font-size: 14px;
 }
 .hero-badge {
@@ -314,7 +316,7 @@ section {
 }
 .fee-highlight .fee-lead {
   font-size: 13px;
-  color: #cfe3d6;
+  color: #ffeeda;
   margin-bottom: 20px;
 }
 .fee-cards {
@@ -355,7 +357,7 @@ section {
 .fee-highlight .fee-link {
   display: block;
   margin-top: 16px;
-  color: #cfe3d6;
+  color: #ffeeda;
   font-size: 13px;
   text-decoration: underline;
 }
@@ -473,7 +475,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
   padding: 14px;
 }
 .pricing-card-header h3 { font-size: 16px; }
-.pricing-card-header .subjects { font-size: 12px; color: #cfe3d6; margin-top: 4px; }
+.pricing-card-header .subjects { font-size: 12px; color: #ffeeda; margin-top: 4px; }
 .pricing-card-body { padding: 16px; }
 .pricing-row {
   display: flex;
@@ -596,7 +598,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
   text-align: center;
 }
 .cta-section h2 { color: white; font-size: 22px; margin-bottom: 8px; }
-.cta-section .cta-sub { color: #cfe3d6; font-size: 14px; margin-bottom: 28px; }
+.cta-section .cta-sub { color: #ffeeda; font-size: 14px; margin-bottom: 28px; }
 .cta-cards {
   display: flex;
   gap: 20px;
@@ -625,7 +627,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
 .cta-card a:hover { color: var(--red); }
 .cta-card .cta-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
 .cta-address {
-  color: #e6f0e9;
+  color: #fff1e2;
   font-size: 13px;
   margin-top: 24px;
 }
@@ -633,23 +635,24 @@ table.schedule tr.elem td { background: #f3f9f0; }
 /* ===== フッター ===== */
 footer {
   background: var(--navy);
-  color: #d6e8f7;
+  color: #ffeeda;
   text-align: center;
   padding: 16px;
   font-size: 12px;
 }
 
-/* ===== 区切り ===== */
+/* ===== 区切り（水玉） ===== */
 .divider {
-  height: 5px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--pop-yellow) 0px, var(--pop-yellow) 24px,
-    var(--red) 24px, var(--red) 48px,
-    var(--pop-pink) 48px, var(--pop-pink) 72px,
-    var(--blue) 72px, var(--blue) 96px,
-    var(--pop-green) 96px, var(--pop-green) 120px
-  );
+  height: 14px;
+  background-color: var(--light);
+  background-image:
+    radial-gradient(circle, var(--pop-yellow) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--pop-pink) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--pop-green) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--pop-sky) 3px, transparent 3.5px);
+  background-size: 48px 14px;
+  background-position: 0 center, 12px center, 24px center, 36px center;
+  background-repeat: repeat-x;
 }
 
 /* ===== アットホームな質感の調整 ===== */
@@ -684,7 +687,7 @@ table.schedule { border-radius: 0 0 16px 16px; }
   background: var(--red);
 }
 .recommend-section .section-title::after { background: var(--pop-green); }
-.subjects-section .section-title::after { background: var(--pop-purple); }
+.subjects-section .section-title::after { background: var(--pop-lavender); }
 .schedule-section .section-title::after { background: var(--blue); }
 .pricing-section .section-title::after { background: var(--pop-yellow); }
 .classroom-section .section-title::after { background: var(--pop-pink); }
@@ -698,7 +701,7 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .worry-item:nth-child(2) { border-left-color: var(--blue); }
 .worry-item:nth-child(3) { border-left-color: var(--pop-pink); }
 .worry-item:nth-child(4) { border-left-color: var(--pop-green); }
-.worry-item:nth-child(5) { border-left-color: var(--pop-purple); }
+.worry-item:nth-child(5) { border-left-color: var(--pop-lavender); }
 .worry-item:nth-child(6) { border-left-color: var(--pop-yellow); }
 
 /* おすすめリスト：チェック丸を色分け */
@@ -706,7 +709,7 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .recommend-item:nth-child(2) .check { background: var(--blue); }
 .recommend-item:nth-child(3) .check { background: var(--pop-green); }
 .recommend-item:nth-child(4) .check { background: var(--pop-pink); }
-.recommend-item:nth-child(5) .check { background: var(--pop-purple); }
+.recommend-item:nth-child(5) .check { background: var(--pop-lavender); }
 
 /* 特徴カード：上部に色ライン */
 .feature-card { border-top: 5px solid var(--red); transition: transform 0.2s; }
@@ -719,47 +722,50 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .tag { background: var(--blue); }
 .subject-tags .tag:nth-child(1) { background: var(--red); }
 .subject-tags .tag:nth-child(2) { background: var(--pop-green); }
-.subject-tags .tag:nth-child(3) { background: var(--pop-purple); }
+.subject-tags .tag:nth-child(3) { background: var(--pop-lavender); }
 .subject-tags .tag:nth-child(4) { background: var(--blue); }
 .subject-tags .tag:nth-child(5) { background: var(--pop-pink); }
 .tag.red { background: var(--red); }
 
-/* 時間割：グラデーション見出し */
-.schedule-table-wrap:nth-child(1) h3 {
-  background: linear-gradient(90deg, var(--blue), var(--pop-purple));
-}
-.schedule-table-wrap:nth-child(2) h3 {
-  background: linear-gradient(90deg, var(--red), var(--pop-pink));
-}
+/* 時間割：やさしい単色見出し */
+.schedule-table-wrap:nth-child(1) h3 { background: var(--blue); }
+.schedule-table-wrap:nth-child(2) h3 { background: var(--navy); }
+table.schedule { border: 2px solid var(--cream-line); border-top: none; }
+table.schedule th { background: #fdf1de; color: var(--text); }
+table.schedule th, table.schedule td { border-color: var(--cream-line); }
+table.schedule tr.elem td { background: #f4fbf7; }
+table.schedule tr.mid1 td { background: #fff6ec; }
+table.schedule tr.mid2 td { background: #fdf7e8; }
+table.schedule tr.mid3 td { background: #f6f9fd; }
 
-/* 料金カード：グラデーションヘッダー */
-.pricing-card { border: none; box-shadow: 0 4px 18px rgba(0,0,0,0.1); }
-.pricing-card:nth-child(1) .pricing-card-header {
-  background: linear-gradient(135deg, var(--blue), var(--pop-purple));
-}
-.pricing-card:nth-child(2) .pricing-card-header {
-  background: linear-gradient(135deg, var(--red), var(--pop-pink));
-}
-.pricing-total { background: linear-gradient(135deg, #fff6e6, #ffeef5); }
-.free-badge { background: linear-gradient(90deg, var(--pop-green), #2fae74); color: white; }
+/* 料金カード：やさしい単色ヘッダー */
+.pricing-card { border: 2px solid var(--cream-line); box-shadow: 0 4px 16px rgba(180,140,100,0.12); }
+.pricing-card:nth-child(1) .pricing-card-header { background: var(--blue); }
+.pricing-card:nth-child(2) .pricing-card-header { background: var(--navy); }
+.pricing-total { background: #fdf3e4; }
+.free-badge { background: var(--pop-green); color: #2c6a4c; }
 
 /* 月謝ハイライト */
-.fee-card:nth-child(1) { border-color: var(--blue); }
-.fee-card:nth-child(2) { border-color: var(--red); }
-.fee-highlight .fee-free { background: linear-gradient(90deg, var(--red), var(--pop-pink)); }
+.fee-card:nth-child(1) { border-color: var(--pop-sky); }
+.fee-card:nth-child(2) { border-color: var(--pop-yellow); }
+.fee-highlight .fee-free { background: var(--red); }
 
 /* 卒業生の声 */
-.voice-card { box-shadow: 0 3px 14px rgba(0,0,0,0.07); }
-.voice-card::before { color: var(--pop-yellow); opacity: 0.5; }
+.voice-card { box-shadow: 0 3px 14px rgba(180,140,100,0.12); border: 2px dashed #f6e3cc; }
+.voice-card::before { color: var(--pop-yellow); opacity: 0.65; }
 
 /* 塾長カード */
-.teacher-card { background: linear-gradient(135deg, #fff8ec, #eef7ff); border: 2px solid #ffe9c9; }
+.teacher-card { background: #fffdf8; border: 2px dashed var(--pop-yellow); }
 .teacher-logo { border-color: var(--pop-yellow) !important; }
 
 /* CTA */
-.cta-section { background: linear-gradient(135deg, var(--red) 0%, var(--pop-pink) 100%); }
+.cta-section { background: var(--navy); }
 .cta-section .cta-sub { color: rgba(255,255,255,0.92) !important; }
 .cta-address { color: rgba(255,255,255,0.95) !important; }
+
+/* おすすめ・悩みカードに手描き風の枠 */
+.recommend-item { border: 2px solid #f7e8d4; }
+.worry-item { border: 2px solid #f7e8d4; border-left-width: 6px; }
 
 /* トップへ戻るボタン */
 .to-top { background: var(--red); }
