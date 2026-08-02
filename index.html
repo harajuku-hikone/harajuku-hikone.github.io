@@ -47,20 +47,20 @@
 </script>
 <style>
 :root {
-  --navy: #a97a55;   /* 木のぬくもりを感じる茶（メイン） */
-  --blue: #8a9e7e;   /* やわらかい若草色（サブ） */
-  --red: #cf8158;    /* あたたかいテラコッタ（アクセント） */
-  --light: #fdf8f1;  /* やさしいクリーム地 */
+  --navy: #776f66;   /* 上品な濃いグレージュ（メイン） */
+  --blue: #9a9288;   /* やわらかいグレージュ（サブ） */
+  --red: #a89684;    /* 落ち着いたベージュ（アクセント線） */
+  --light: #faf7f2;  /* 生成り（背景） */
   --white: #ffffff;
-  --text: #4e433a;   /* やわらかい焦茶 */
-  --muted: #94897d;
-  --cream-line: #ece0d1;  /* やさしい枠線 */
-  /* 旧ポップ色は同系色に統一 */
-  --pop-yellow: #d9b177;
-  --pop-pink: #c9a189;
-  --pop-green: #8a9e7e;
-  --pop-sky: #9fb0a4;
-  --pop-lavender: #b0a496;
+  --text: #4f4a44;   /* やわらかいチャコール */
+  --muted: #918a82;
+  --cream-line: #e8e3db;  /* やさしい枠線 */
+  /* 旧アクセント色は同系色に統一 */
+  --pop-yellow: #c9bfae;
+  --pop-pink: #c4b8ac;
+  --pop-green: #a8a196;
+  --pop-sky: #aeaba4;
+  --pop-lavender: #a9a29a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -87,7 +87,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(160,110,60,0.22);
+  box-shadow: 0 2px 10px rgba(90,80,70,0.16);
 }
 header img.header-logo {
   width: 56px;
@@ -103,7 +103,7 @@ header img.header-logo {
   letter-spacing: 0.08em;
 }
 .header-text p {
-  color: #ffeeda;
+  color: #efeae2;
   font-size: 12px;
   margin-top: 2px;
 }
@@ -115,7 +115,7 @@ header .header-tel {
 header .header-tel span {
   display: block;
   font-size: 11px;
-  color: #ffeeda;
+  color: #efeae2;
 }
 header .header-tel a {
   color: white;
@@ -142,7 +142,7 @@ header .header-tel a {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(70,50,35,0.55) 0%, rgba(70,50,35,0.68) 100%);
+  background: linear-gradient(to bottom, rgba(60,56,50,0.5) 0%, rgba(60,56,50,0.66) 100%);
 }
 .hero-content {
   position: absolute;
@@ -169,11 +169,11 @@ header .header-tel a {
   line-height: 1.4;
 }
 .hero-content p {
-  color: #fff1e2;
+  color: #f2eee8;
   font-size: 14px;
 }
 .hero-badge {
-  background: var(--red);
+  background: var(--navy);
   color: white;
   font-size: 13px;
   font-weight: bold;
@@ -292,12 +292,12 @@ section {
   color: var(--text);
   padding: 36px 20px;
   text-align: center;
-  border-bottom: 1px solid #efe4d2;
+  border-bottom: 1px solid #e8e3db;
 }
 .fee-highlight .fee-title { color: var(--navy); }
 .fee-highlight .fee-lead { color: var(--muted) !important; }
 .fee-card {
-  border: 2px solid #ecdfc9;
+  border: 2px solid #e8e3db;
   box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 .fee-highlight .fee-link { color: var(--navy) !important; }
@@ -308,7 +308,7 @@ section {
 }
 .fee-highlight .fee-lead {
   font-size: 13px;
-  color: #ffeeda;
+  color: #efeae2;
   margin-bottom: 20px;
 }
 .fee-cards {
@@ -331,7 +331,7 @@ section {
 .fee-card .fee-amount {
   font-size: 30px;
   font-weight: bold;
-  color: var(--red);
+  color: var(--navy);
   line-height: 1.2;
 }
 .fee-card .fee-amount small { font-size: 15px; color: var(--navy); font-weight: bold; }
@@ -339,7 +339,7 @@ section {
 .fee-highlight .fee-free {
   display: inline-block;
   margin-top: 18px;
-  background: var(--red);
+  background: var(--navy);
   color: white;
   font-size: 14px;
   font-weight: bold;
@@ -349,7 +349,7 @@ section {
 .fee-highlight .fee-link {
   display: block;
   margin-top: 16px;
-  color: #ffeeda;
+  color: #efeae2;
   font-size: 13px;
   text-decoration: underline;
 }
@@ -467,7 +467,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
   padding: 14px;
 }
 .pricing-card-header h3 { font-size: 16px; }
-.pricing-card-header .subjects { font-size: 12px; color: #ffeeda; margin-top: 4px; }
+.pricing-card-header .subjects { font-size: 12px; color: #efeae2; margin-top: 4px; }
 .pricing-card-body { padding: 16px; }
 .pricing-row {
   display: flex;
@@ -488,7 +488,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
   margin-top: 12px;
 }
 .pricing-total .total-label { font-size: 12px; color: var(--muted); }
-.pricing-total .total-amount { font-size: 22px; font-weight: bold; color: var(--red); margin-top: 2px; }
+.pricing-total .total-amount { font-size: 22px; font-weight: bold; color: var(--navy); margin-top: 2px; }
 .pricing-note {
   font-size: 12px;
   color: var(--muted);
@@ -590,7 +590,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
   text-align: center;
 }
 .cta-section h2 { color: white; font-size: 22px; margin-bottom: 8px; }
-.cta-section .cta-sub { color: #ffeeda; font-size: 14px; margin-bottom: 28px; }
+.cta-section .cta-sub { color: #efeae2; font-size: 14px; margin-bottom: 28px; }
 .cta-cards {
   display: flex;
   gap: 20px;
@@ -619,7 +619,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
 .cta-card a:hover { color: var(--red); }
 .cta-card .cta-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
 .cta-address {
-  color: #fff1e2;
+  color: #f2eee8;
   font-size: 13px;
   margin-top: 24px;
 }
@@ -627,7 +627,7 @@ table.schedule tr.elem td { background: #f3f9f0; }
 /* ===== フッター ===== */
 footer {
   background: var(--navy);
-  color: #ffeeda;
+  color: #efeae2;
   text-align: center;
   padding: 16px;
   font-size: 12px;
@@ -652,7 +652,7 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .schedule-table-wrap h3 { border-radius: 16px 16px 0 0; }
 .teacher-card { border-radius: 20px; }
 .cta-card { border-radius: 18px; }
-.mobile-bar a.mb-tel { background: var(--red); }
+.mobile-bar a.mb-tel { background: var(--navy); }
 
 /* ===== アットホーム調整（色数を絞った落ち着いた統一感） ===== */
 /* セクション見出し：やさしい下線ひとつ */
@@ -677,13 +677,13 @@ table.schedule { border-radius: 0 0 16px 16px; }
   background: var(--white);
   border: 1px solid var(--cream-line);
   border-left: 4px solid var(--red);
-  box-shadow: 0 1px 6px rgba(150,120,90,0.07);
+  box-shadow: 0 1px 6px rgba(110,100,90,0.07);
 }
 
 /* おすすめリスト */
 .recommend-item {
   border: 1px solid var(--cream-line);
-  box-shadow: 0 1px 6px rgba(150,120,90,0.07);
+  box-shadow: 0 1px 6px rgba(110,100,90,0.07);
 }
 .recommend-item .check { background: var(--blue); }
 
@@ -691,7 +691,7 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .feature-card {
   border: 1px solid var(--cream-line);
   border-top: 3px solid var(--navy);
-  box-shadow: 0 2px 10px rgba(150,120,90,0.08);
+  box-shadow: 0 2px 10px rgba(110,100,90,0.08);
 }
 
 /* 科目タグ */
@@ -701,31 +701,31 @@ table.schedule { border-radius: 0 0 16px 16px; }
 /* 時間割 */
 .schedule-table-wrap h3 { background: var(--navy); }
 table.schedule { border: 1px solid var(--cream-line); border-top: none; }
-table.schedule th { background: #f6ede1; color: var(--text); }
+table.schedule th { background: #f2efe9; color: var(--text); }
 table.schedule th, table.schedule td { border-color: var(--cream-line); }
 table.schedule td.day { color: var(--navy); }
 table.schedule tr.elem td,
 table.schedule tr.mid1 td,
 table.schedule tr.mid2 td,
-table.schedule tr.mid3 td { background: #fdf9f3; }
+table.schedule tr.mid3 td { background: #fbf9f5; }
 
 /* 料金カード */
 .pricing-card {
   border: 1px solid var(--cream-line);
-  box-shadow: 0 2px 12px rgba(150,120,90,0.1);
+  box-shadow: 0 2px 12px rgba(110,100,90,0.1);
 }
 .pricing-card .pricing-card-header { background: var(--navy); }
-.pricing-total { background: #f9f2e8; }
-.free-badge { background: #eef1e9; color: #5a6b50; }
+.pricing-total { background: #f4f1eb; }
+.free-badge { background: #eceae4; color: #6b665e; }
 
 /* 月謝ハイライト */
 .fee-card { border: 1px solid var(--cream-line); }
-.fee-highlight .fee-free { background: var(--red); }
+.fee-highlight .fee-free { background: var(--navy); }
 
 /* 卒業生の声 */
 .voice-card {
   border: 1px solid var(--cream-line);
-  box-shadow: 0 2px 10px rgba(150,120,90,0.08);
+  box-shadow: 0 2px 10px rgba(110,100,90,0.08);
 }
 .voice-card::before { color: var(--cream-line); opacity: 1; }
 
@@ -803,7 +803,7 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
   line-height: 1.3;
 }
 .mobile-bar a .mb-icon { font-size: 19px; }
-.mobile-bar a.mb-tel { background: var(--red); }
+.mobile-bar a.mb-tel { background: var(--navy); }
 .mobile-bar a.mb-line { background: #06C755; }
 
 /* ===== スマホ最適化 ===== */
