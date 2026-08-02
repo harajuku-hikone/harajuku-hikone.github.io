@@ -47,20 +47,20 @@
 </script>
 <style>
 :root {
-  --navy: #e08a4f;   /* あたたかいオレンジ（メイン） */
-  --blue: #5cb5a6;   /* やさしいミントグリーン */
-  --red: #ef7a5e;    /* やわらかいコーラル */
-  --light: #fff9f0;  /* クリーム地 */
+  --navy: #a97a55;   /* 木のぬくもりを感じる茶（メイン） */
+  --blue: #8a9e7e;   /* やわらかい若草色（サブ） */
+  --red: #cf8158;    /* あたたかいテラコッタ（アクセント） */
+  --light: #fdf8f1;  /* やさしいクリーム地 */
   --white: #ffffff;
-  --text: #55483f;   /* やわらかい焦茶 */
-  --muted: #93857a;
-  /* パステルのポップ差し色 */
-  --pop-yellow: #f7c95c;
-  --pop-pink: #f2a3b3;
-  --pop-green: #8ccfae;
-  --pop-sky: #8fc4e0;
-  --pop-lavender: #b7abdd;
-  --cream-line: #f0e2cf;
+  --text: #4e433a;   /* やわらかい焦茶 */
+  --muted: #94897d;
+  --cream-line: #ece0d1;  /* やさしい枠線 */
+  /* 旧ポップ色は同系色に統一 */
+  --pop-yellow: #d9b177;
+  --pop-pink: #c9a189;
+  --pop-green: #8a9e7e;
+  --pop-sky: #9fb0a4;
+  --pop-lavender: #b0a496;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -71,18 +71,10 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* ===== やわらかい水玉ライン ===== */
+/* ===== 細いアクセントライン ===== */
 .stripe {
-  height: 14px;
-  background-color: var(--light);
-  background-image:
-    radial-gradient(circle, var(--pop-yellow) 3px, transparent 3.5px),
-    radial-gradient(circle, var(--pop-pink) 3px, transparent 3.5px),
-    radial-gradient(circle, var(--pop-green) 3px, transparent 3.5px),
-    radial-gradient(circle, var(--pop-sky) 3px, transparent 3.5px);
-  background-size: 48px 14px;
-  background-position: 0 center, 12px center, 24px center, 36px center;
-  background-repeat: repeat-x;
+  height: 4px;
+  background: var(--red);
 }
 
 /* ===== ヘッダー ===== */
@@ -150,7 +142,7 @@ header .header-tel a {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(120,80,50,0.62) 0%, rgba(200,130,80,0.5) 55%, rgba(140,95,60,0.6) 100%);
+  background: linear-gradient(to bottom, rgba(70,50,35,0.55) 0%, rgba(70,50,35,0.68) 100%);
 }
 .hero-content {
   position: absolute;
@@ -641,18 +633,10 @@ footer {
   font-size: 12px;
 }
 
-/* ===== 区切り（水玉） ===== */
+/* ===== 区切り ===== */
 .divider {
-  height: 14px;
-  background-color: var(--light);
-  background-image:
-    radial-gradient(circle, var(--pop-yellow) 3px, transparent 3.5px),
-    radial-gradient(circle, var(--pop-pink) 3px, transparent 3.5px),
-    radial-gradient(circle, var(--pop-green) 3px, transparent 3.5px),
-    radial-gradient(circle, var(--pop-sky) 3px, transparent 3.5px);
-  background-size: 48px 14px;
-  background-position: 0 center, 12px center, 24px center, 36px center;
-  background-repeat: repeat-x;
+  height: 4px;
+  background: var(--red);
 }
 
 /* ===== アットホームな質感の調整 ===== */
@@ -670,105 +654,92 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .cta-card { border-radius: 18px; }
 .mobile-bar a.mb-tel { background: var(--red); }
 
-/* ===== ポップ調整 ===== */
-/* セクション見出し：色分け＋丸みのある下線 */
+/* ===== アットホーム調整（色数を絞った落ち着いた統一感） ===== */
+/* セクション見出し：やさしい下線ひとつ */
 .section-title {
   border-left: none;
   padding-left: 0;
   position: relative;
   padding-bottom: 10px;
+  color: var(--navy);
 }
 .section-title::after {
   content: "";
   position: absolute;
   left: 0; bottom: 0;
-  width: 68px; height: 5px;
-  border-radius: 5px;
+  width: 56px; height: 3px;
+  border-radius: 3px;
   background: var(--red);
 }
-.recommend-section .section-title::after { background: var(--pop-green); }
-.subjects-section .section-title::after { background: var(--pop-lavender); }
-.schedule-section .section-title::after { background: var(--blue); }
-.pricing-section .section-title::after { background: var(--pop-yellow); }
-.classroom-section .section-title::after { background: var(--pop-pink); }
-.teacher-section .section-title::after { background: var(--red); }
-.voice-section .section-title::after { background: var(--pop-green); }
-.features-inner .section-title::after { background: var(--pop-yellow); }
 
-/* お悩みカード：色をローテーション */
-.worry-item { border-left-width: 5px; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
-.worry-item:nth-child(1) { border-left-color: var(--red); }
-.worry-item:nth-child(2) { border-left-color: var(--blue); }
-.worry-item:nth-child(3) { border-left-color: var(--pop-pink); }
-.worry-item:nth-child(4) { border-left-color: var(--pop-green); }
-.worry-item:nth-child(5) { border-left-color: var(--pop-lavender); }
-.worry-item:nth-child(6) { border-left-color: var(--pop-yellow); }
+/* お悩みカード */
+.worry-item {
+  background: var(--white);
+  border: 1px solid var(--cream-line);
+  border-left: 4px solid var(--red);
+  box-shadow: 0 1px 6px rgba(150,120,90,0.07);
+}
 
-/* おすすめリスト：チェック丸を色分け */
-.recommend-item:nth-child(1) .check { background: var(--red); }
-.recommend-item:nth-child(2) .check { background: var(--blue); }
-.recommend-item:nth-child(3) .check { background: var(--pop-green); }
-.recommend-item:nth-child(4) .check { background: var(--pop-pink); }
-.recommend-item:nth-child(5) .check { background: var(--pop-lavender); }
+/* おすすめリスト */
+.recommend-item {
+  border: 1px solid var(--cream-line);
+  box-shadow: 0 1px 6px rgba(150,120,90,0.07);
+}
+.recommend-item .check { background: var(--blue); }
 
-/* 特徴カード：上部に色ライン */
-.feature-card { border-top: 5px solid var(--red); transition: transform 0.2s; }
-.feature-card:hover { transform: translateY(-4px); }
-.feature-card:nth-child(2) { border-top-color: var(--pop-yellow); }
-.feature-card:nth-child(3) { border-top-color: var(--pop-green); }
-.feature-card:nth-child(4) { border-top-color: var(--pop-pink); }
+/* 特徴カード */
+.feature-card {
+  border: 1px solid var(--cream-line);
+  border-top: 3px solid var(--navy);
+  box-shadow: 0 2px 10px rgba(150,120,90,0.08);
+}
 
-/* 科目タグ：カラフルに */
-.tag { background: var(--blue); }
-.subject-tags .tag:nth-child(1) { background: var(--red); }
-.subject-tags .tag:nth-child(2) { background: var(--pop-green); }
-.subject-tags .tag:nth-child(3) { background: var(--pop-lavender); }
-.subject-tags .tag:nth-child(4) { background: var(--blue); }
-.subject-tags .tag:nth-child(5) { background: var(--pop-pink); }
-.tag.red { background: var(--red); }
+/* 科目タグ */
+.tag { background: var(--navy); }
+.tag.red { background: var(--blue); }
 
-/* 時間割：やさしい単色見出し */
-.schedule-table-wrap:nth-child(1) h3 { background: var(--blue); }
-.schedule-table-wrap:nth-child(2) h3 { background: var(--navy); }
-table.schedule { border: 2px solid var(--cream-line); border-top: none; }
-table.schedule th { background: #fdf1de; color: var(--text); }
+/* 時間割 */
+.schedule-table-wrap h3 { background: var(--navy); }
+table.schedule { border: 1px solid var(--cream-line); border-top: none; }
+table.schedule th { background: #f6ede1; color: var(--text); }
 table.schedule th, table.schedule td { border-color: var(--cream-line); }
-table.schedule tr.elem td { background: #f4fbf7; }
-table.schedule tr.mid1 td { background: #fff6ec; }
-table.schedule tr.mid2 td { background: #fdf7e8; }
-table.schedule tr.mid3 td { background: #f6f9fd; }
+table.schedule td.day { color: var(--navy); }
+table.schedule tr.elem td,
+table.schedule tr.mid1 td,
+table.schedule tr.mid2 td,
+table.schedule tr.mid3 td { background: #fdf9f3; }
 
-/* 料金カード：やさしい単色ヘッダー */
-.pricing-card { border: 2px solid var(--cream-line); box-shadow: 0 4px 16px rgba(180,140,100,0.12); }
-.pricing-card:nth-child(1) .pricing-card-header { background: var(--blue); }
-.pricing-card:nth-child(2) .pricing-card-header { background: var(--navy); }
-.pricing-total { background: #fdf3e4; }
-.free-badge { background: var(--pop-green); color: #2c6a4c; }
+/* 料金カード */
+.pricing-card {
+  border: 1px solid var(--cream-line);
+  box-shadow: 0 2px 12px rgba(150,120,90,0.1);
+}
+.pricing-card .pricing-card-header { background: var(--navy); }
+.pricing-total { background: #f9f2e8; }
+.free-badge { background: #eef1e9; color: #5a6b50; }
 
 /* 月謝ハイライト */
-.fee-card:nth-child(1) { border-color: var(--pop-sky); }
-.fee-card:nth-child(2) { border-color: var(--pop-yellow); }
+.fee-card { border: 1px solid var(--cream-line); }
 .fee-highlight .fee-free { background: var(--red); }
 
 /* 卒業生の声 */
-.voice-card { box-shadow: 0 3px 14px rgba(180,140,100,0.12); border: 2px dashed #f6e3cc; }
-.voice-card::before { color: var(--pop-yellow); opacity: 0.65; }
+.voice-card {
+  border: 1px solid var(--cream-line);
+  box-shadow: 0 2px 10px rgba(150,120,90,0.08);
+}
+.voice-card::before { color: var(--cream-line); opacity: 1; }
 
 /* 塾長カード */
-.teacher-card { background: #fffdf8; border: 2px dashed var(--pop-yellow); }
-.teacher-logo { border-color: var(--pop-yellow) !important; }
+.teacher-card { background: var(--white); border: 1px solid var(--cream-line); }
+.teacher-logo { border-color: var(--cream-line) !important; }
 
 /* CTA */
 .cta-section { background: var(--navy); }
-.cta-section .cta-sub { color: rgba(255,255,255,0.92) !important; }
-.cta-address { color: rgba(255,255,255,0.95) !important; }
-
-/* おすすめ・悩みカードに手描き風の枠 */
-.recommend-item { border: 2px solid #f7e8d4; }
-.worry-item { border: 2px solid #f7e8d4; border-left-width: 6px; }
+.cta-section .cta-sub { color: rgba(255,255,255,0.9) !important; }
+.cta-address { color: rgba(255,255,255,0.92) !important; }
 
 /* トップへ戻るボタン */
-.to-top { background: var(--red); }
+.to-top { background: var(--navy); }
 
 /* ===== スクロール表示アニメーション ===== */
 .reveal {
