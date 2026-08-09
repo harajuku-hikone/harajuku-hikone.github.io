@@ -47,20 +47,19 @@
 </script>
 <style>
 :root {
-  --navy: #6e6a64;   /* 落ち着いたグレー（メイン） */
-  --blue: #97928b;   /* やわらかいグレー（サブ） */
-  --red: #b3aca3;    /* うすいグレージュ（アクセント線） */
-  --light: #f7f6f4;  /* ほんのり生成りの淡いグレー（背景） */
+  --navy: #1a2a6c;   /* 濃紺（メイン） */
+  --blue: #2B7FFF;   /* ブルー */
+  --red: #FF6B35;    /* オレンジ */
+  --light: #FFF9F0;  /* クリーム地 */
   --white: #ffffff;
-  --text: #46433f;   /* やわらかいチャコール */
-  --muted: #8c8781;
-  --cream-line: #eae8e4;  /* やさしい枠線 */
-  /* 旧アクセント色は同系色に統一 */
-  --pop-yellow: #cec9c1;
-  --pop-pink: #c7c1ba;
-  --pop-green: #97928b;
-  --pop-sky: #b0aca6;
-  --pop-lavender: #a8a49e;
+  --text: #2a2a2a;
+  --muted: #666666;
+  --cream-line: #f0e6d8;
+  --pop-yellow: #FFD700;
+  --pop-pink: #FF4D8D;
+  --pop-green: #00C48C;
+  --pop-sky: #2B7FFF;
+  --pop-lavender: #7B61FF;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -654,8 +653,53 @@ table.schedule { border-radius: 0 0 16px 16px; }
 .cta-card { border-radius: 18px; }
 .mobile-bar a.mb-tel { background: var(--navy); }
 
-/* ===== アットホーム調整（色数を絞った落ち着いた統一感） ===== */
-/* セクション見出し：やさしい下線ひとつ */
+/* ===== 当初ご提案のアットホーム案（ポップ版）デザイン ===== */
+/* カラフルストライプ */
+.stripe, .divider {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pop-yellow) 0px, var(--pop-yellow) 30px,
+    var(--red) 30px, var(--red) 60px,
+    var(--pop-pink) 60px, var(--pop-pink) 90px,
+    var(--blue) 90px, var(--blue) 120px,
+    var(--pop-green) 120px, var(--pop-green) 150px
+  );
+}
+
+/* ヘッダー */
+header {
+  background: var(--navy);
+  box-shadow: none;
+}
+header img.header-logo {
+  border-radius: 14px;
+  border: 3px solid var(--pop-yellow) !important;
+}
+.header-text p, header .header-tel span { color: #aac; }
+header .header-tel a { color: var(--pop-yellow); }
+
+/* ヒーロー：カラフルなグラデーション */
+.hero {
+  height: auto;
+  min-height: 380px;
+  background: linear-gradient(135deg, #1a2a6c 0%, #2B7FFF 50%, #00C48C 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero img.hero-bg { display: none; }
+.hero-overlay { display: none; }
+.hero-content {
+  position: static;
+  padding: 44px 20px;
+  width: 100%;
+}
+.hero-content img.hero-logo { border: 5px solid var(--pop-yellow); }
+.hero-content p { color: rgba(255,255,255,0.85); }
+.hero-badge { background: var(--pop-yellow); color: var(--navy); }
+
+/* セクション見出し：丸みのある下線 */
 .section-title {
   border-left: none;
   padding-left: 0;
@@ -667,117 +711,150 @@ table.schedule { border-radius: 0 0 16px 16px; }
   content: "";
   position: absolute;
   left: 0; bottom: 0;
-  width: 56px; height: 3px;
-  border-radius: 3px;
+  width: 64px; height: 5px;
+  border-radius: 5px;
   background: var(--red);
 }
+.recommend-section .section-title::after { background: var(--pop-green); }
+.subjects-section .section-title::after { background: var(--pop-lavender); }
+.schedule-section .section-title::after { background: var(--blue); }
+.pricing-section .section-title::after { background: var(--pop-yellow); }
+.classroom-section .section-title::after { background: var(--pop-pink); }
+.voice-section .section-title::after { background: var(--pop-green); }
 
-/* お悩みカード */
+/* セクション背景 */
+.worry-section, .subjects-section, .pricing-section, .teacher-section { background: var(--white); }
+.recommend-section, .classroom-section { background: linear-gradient(135deg, #FFF9F0, #F0F8FF); }
+.schedule-section { background: linear-gradient(135deg, #F0F8FF, #FFF9F0); }
+.features-section { background: linear-gradient(135deg, #FFF9F0 0%, #F0F8FF 100%); color: var(--text); }
+.features-inner .section-title { color: var(--navy); }
+.features-inner .section-title::after { background: var(--pop-yellow); }
+.voice-section { background: linear-gradient(135deg, #FFF9F0, #F0F8FF); }
+
+/* お悩みカード：破線でやわらかく */
 .worry-item {
-  background: var(--white);
-  border: 1px solid var(--cream-line);
-  border-left: 4px solid var(--red);
-  box-shadow: 0 1px 6px rgba(110,100,90,0.07);
+  background: #FFF9F0;
+  border: 2px dashed #FFB347;
+  border-left: 2px dashed #FFB347;
+  border-radius: 14px;
+  box-shadow: none;
 }
 
 /* おすすめリスト */
 .recommend-item {
-  border: 1px solid var(--cream-line);
-  box-shadow: 0 1px 6px rgba(110,100,90,0.07);
+  background: var(--white);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-.recommend-item .check { background: var(--blue); }
+.recommend-item:nth-child(1) .check { background: var(--red); }
+.recommend-item:nth-child(2) .check { background: var(--blue); }
+.recommend-item:nth-child(3) .check { background: var(--pop-green); }
+.recommend-item:nth-child(4) .check { background: var(--pop-pink); }
+.recommend-item:nth-child(5) .check { background: var(--pop-lavender); }
 
-/* 特徴カード */
+/* 特徴カード：上部にカラーライン＋ホバーで浮く */
 .feature-card {
-  border: 1px solid var(--cream-line);
-  border-top: 3px solid var(--navy);
-  box-shadow: 0 2px 10px rgba(110,100,90,0.08);
+  background: var(--white);
+  border: none;
+  border-top: 5px solid var(--red);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
 }
+.feature-card:hover { transform: translateY(-4px); }
+.feature-card:nth-child(2) { border-top-color: var(--blue); }
+.feature-card:nth-child(3) { border-top-color: var(--pop-green); }
+.feature-card:nth-child(4) { border-top-color: var(--pop-pink); }
 
-/* 科目タグ */
-.tag { background: var(--navy); }
-.tag.red { background: var(--blue); }
+/* 科目タグ：カラフル */
+.subject-tags .tag:nth-child(1) { background: #E8F0FF; color: var(--blue); }
+.subject-tags .tag:nth-child(2) { background: #E8FFF6; color: #00996d; }
+.subject-tags .tag:nth-child(3) { background: #EEE8FF; color: var(--pop-lavender); }
+.subject-tags .tag:nth-child(4) { background: #FFF0E8; color: #d1521f; }
+.subject-tags .tag:nth-child(5) { background: #FFE8F3; color: #d61e64; }
 
-/* 時間割 */
-.schedule-table-wrap h3 { background: var(--navy); }
-table.schedule { border: 1px solid var(--cream-line); border-top: none; }
-table.schedule th { background: #f2efe9; color: var(--text); }
-table.schedule th, table.schedule td { border-color: var(--cream-line); }
+/* 時間割：グラデーション見出し */
+.schedule-table-wrap:nth-child(1) h3 {
+  background: linear-gradient(90deg, var(--blue), var(--pop-lavender));
+  border-radius: 14px 14px 0 0;
+}
+.schedule-table-wrap:nth-child(2) h3 {
+  background: linear-gradient(90deg, var(--red), var(--pop-pink));
+  border-radius: 14px 14px 0 0;
+}
+table.schedule { border: none; border-radius: 0 0 14px 14px; }
+table.schedule th { background: #f8f9ff; color: var(--navy); }
+table.schedule th, table.schedule td { border: 1px solid #eee; }
 table.schedule td.day { color: var(--navy); }
 table.schedule tr.elem td,
 table.schedule tr.mid1 td,
 table.schedule tr.mid2 td,
-table.schedule tr.mid3 td { background: #fbf9f5; }
+table.schedule tr.mid3 td { background: transparent; }
+table.schedule tbody tr:nth-child(odd) td { background: #fafbff; }
 
-/* 料金カード */
+/* 料金カード：グラデーションヘッダー */
 .pricing-card {
-  border: 1px solid var(--cream-line);
-  box-shadow: 0 2px 12px rgba(110,100,90,0.1);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-.pricing-card .pricing-card-header { background: var(--navy); }
-.pricing-total { background: #f4f1eb; }
-.free-badge { background: #eceae4; color: #6b665e; }
+.pricing-card:nth-child(1) .pricing-card-header {
+  background: linear-gradient(135deg, var(--blue), var(--pop-lavender));
+}
+.pricing-card:nth-child(2) .pricing-card-header {
+  background: linear-gradient(135deg, var(--red), var(--pop-pink));
+}
+.pricing-row { border-bottom: 2px dashed #f0f0f0; }
+.pricing-total { background: linear-gradient(135deg, #FFF9F0, #FFF0F8); }
+.pricing-total .total-amount { color: var(--red); }
+.free-badge { background: linear-gradient(90deg, var(--pop-green), #00a878); color: white; }
+.pricing-note { background: #FFFBE8; border-left: 4px solid var(--pop-yellow); border-radius: 10px; }
 
 /* 月謝ハイライト */
-.fee-card { border: 1px solid var(--cream-line); }
-.fee-highlight .fee-free { background: var(--navy); }
+.fee-highlight { background: var(--white); border-bottom: none; }
+.fee-card {
+  border: 2px solid #f0e6d8;
+  border-radius: 18px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+.fee-card:nth-child(1) { border-color: #cfe2ff; }
+.fee-card:nth-child(2) { border-color: #ffd9c2; }
+.fee-card .fee-amount { color: var(--red); }
+.fee-highlight .fee-free { background: var(--red); }
 
 /* 卒業生の声 */
 .voice-card {
-  border: 1px solid var(--cream-line);
-  box-shadow: 0 2px 10px rgba(110,100,90,0.08);
+  background: var(--white);
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.07);
 }
-.voice-card::before { color: var(--cream-line); opacity: 1; }
+.voice-card::before { color: var(--pop-yellow); opacity: 0.6; }
 
 /* 塾長カード */
-.teacher-card { background: var(--white); border: 1px solid var(--cream-line); }
-.teacher-logo { border-color: var(--cream-line) !important; }
+.teacher-card {
+  background: linear-gradient(135deg, #F8F9FF, #FFF9F0);
+  border: 2px solid #f0f0f0;
+  border-radius: 20px;
+}
+.teacher-logo { border: 4px solid var(--pop-yellow) !important; }
 
-/* CTA */
-.cta-section { background: var(--navy); }
+/* 教室写真 */
+.gallery img { border-radius: 18px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+
+/* CTA：オレンジ→ピンク */
+.cta-section { background: linear-gradient(135deg, var(--red) 0%, var(--pop-pink) 100%); }
 .cta-section .cta-sub { color: rgba(255,255,255,0.9) !important; }
 .cta-address { color: rgba(255,255,255,0.92) !important; }
+.cta-card { border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
 
-/* トップへ戻るボタン */
+/* フッター */
+footer { background: var(--navy); color: #aab; }
+
+/* スマホ固定バー・トップへ戻る */
+.mobile-bar a.mb-tel { background: var(--red); }
 .to-top { background: var(--navy); }
-
-/* ===== 白ベースの清潔感 ===== */
-/* 交互の背景を白寄りに（区切りは細い線で表現） */
-.recommend-section,
-.schedule-section,
-.classroom-section,
-.voice-section,
-.features-section,
-.fee-highlight {
-  background: var(--white);
-  border-top: 1px solid var(--cream-line);
-}
-.worry-section,
-.subjects-section,
-.pricing-section,
-.teacher-section {
-  background: var(--white);
-  border-top: 1px solid var(--cream-line);
-}
-
-/* カード類は白地に細い線で軽やかに */
-.worry-item { background: var(--light); box-shadow: none; }
-.recommend-item { background: var(--light); box-shadow: none; }
-.feature-card { background: var(--white); box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-.voice-card { background: var(--light); box-shadow: none; }
-.pricing-card { box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
-.fee-card { background: var(--white); box-shadow: none; }
-.teacher-card { background: var(--light); }
-.gallery img { box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
-
-/* 余白を広げて抜け感を出す */
-section { padding: 52px 20px; }
-.features-section { padding: 52px 20px; }
-.fee-highlight { padding: 44px 20px; }
-
-/* 区切り線とヘッダー影を控えめに */
-.stripe, .divider { height: 1px; background: var(--cream-line); }
-header { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 
 /* ===== スクロール表示アニメーション ===== */
 .reveal {
