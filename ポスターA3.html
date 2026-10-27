@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>原学習塾 壁掲示用ポスター A3</title>
+<style>
+@page { size: A3 portrait; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  color: #2f2b27;
+  background: #fff;
+  line-height: 1.6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheet {
+  width: 297mm; height: 420mm;
+  padding: 14mm 15mm;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.sheet > * { flex-shrink: 0; }
+
+/* ヘッダー */
+.head {
+  background: #2c3d68; color: #fff;
+  border-radius: 14px;
+  padding: 12px 22px;
+  display: flex; align-items: center; gap: 18px;
+  margin-bottom: 15px;
+}
+.head img { width: 74px; height: 74px; border-radius: 50%; border: 3px solid #e5c274; object-fit: cover; }
+.head .nm { font-size: 34px; font-weight: bold; letter-spacing: 0.08em; line-height: 1.2; }
+.head .sb { font-size: 15px; color: #c3cde2; margin-top: 3px; }
+.head .yr {
+  margin-left: auto; background: #e5c274; color: #2c3d68;
+  border-radius: 10px; padding: 8px 18px; text-align: center;
+  font-size: 15px; font-weight: bold; line-height: 1.3;
+}
+.head .yr b { display: block; font-size: 26px; }
+
+/* キャッチ */
+.catch { text-align: center; margin-bottom: 14px; }
+.catch .pre { font-size: 19px; color: #5b544c; margin-bottom: 5px; }
+.catch h1 { font-size: 58px; color: #2c3d68; line-height: 1.25; letter-spacing: 0.01em; }
+.catch h1 em { font-style: normal; color: #dd6a3a; }
+.catch .post { font-size: 19px; color: #5b544c; margin-top: 8px; }
+
+/* 募集バー */
+.recruit {
+  background: #dd6a3a; color: #fff; text-align: center;
+  border-radius: 12px; padding: 11px;
+  font-size: 30px; font-weight: bold; letter-spacing: 0.1em;
+  margin-bottom: 15px;
+}
+.recruit span { display: block; font-size: 18px; font-weight: normal; letter-spacing: 0.04em; margin-top: 3px; }
+
+/* 対象 */
+.target {
+  text-align: center; border: 3px solid #2c3d68; border-radius: 12px;
+  padding: 11px; font-size: 25px; font-weight: bold; color: #2c3d68;
+  margin-bottom: 15px;
+}
+.target span { font-size: 19px; color: #5b544c; font-weight: normal; }
+
+/* 3つの特徴 */
+.pts { display: flex; gap: 13px; margin-bottom: 15px; }
+.pt {
+  flex: 1; background: #fdfaf5; border: 2px solid #e3d9c8;
+  border-radius: 12px; padding: 12px 10px; text-align: center;
+}
+.pt .ic { font-size: 30px; line-height: 1; margin-bottom: 6px; }
+.pt b { display: block; font-size: 20px; color: #2c3d68; margin-bottom: 4px; }
+.pt span { font-size: 14.5px; color: #5b544c; line-height: 1.5; }
+
+/* 料金 */
+.price { border: 3px solid #2c3d68; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
+.price .ph {
+  background: #2c3d68; color: #fff; text-align: center;
+  font-size: 22px; font-weight: bold; padding: 9px; letter-spacing: 0.1em;
+}
+.price .pb { display: flex; }
+.price .pc { flex: 1; padding: 12px 14px; text-align: center; }
+.price .pc + .pc { border-left: 2px dashed #c9d2e2; }
+.price .gr { font-size: 20px; font-weight: bold; color: #2c3d68; margin-bottom: 4px; }
+.price .am { font-size: 40px; font-weight: bold; color: #dd6a3a; line-height: 1.1; }
+.price .am small { font-size: 20px; color: #2f2b27; }
+.price .nt { font-size: 14px; color: #6b645c; margin-top: 5px; line-height: 1.5; }
+.price .free {
+  background: #fdf4e8; text-align: center; padding: 9px;
+  font-size: 22px; font-weight: bold; color: #2c3d68; border-top: 2px dashed #c9d2e2;
+}
+.price .free b { color: #dd6a3a; font-size: 27px; }
+
+/* 時間割 */
+.sched { border: 3px solid #2c3d68; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
+.sched .sh {
+  background: #2c3d68; color: #fff; text-align: center;
+  font-size: 22px; font-weight: bold; padding: 9px; letter-spacing: 0.1em;
+}
+.sched table { width: 100%; border-collapse: collapse; font-size: 16px; }
+.sched th, .sched td {
+  border: 1px solid #d8cfc0; padding: 6px 4px; text-align: center; background: #fff; line-height: 1.4;
+}
+.sched th { background: #f2ece2; color: #2c3d68; font-weight: bold; font-size: 18px; }
+.sched .lb { background: #f2ece2; font-weight: bold; color: #2c3d68; width: 128px; font-size: 15px; }
+.sched .lb small { font-size: 13px; font-weight: normal; color: #5b544c; }
+
+/* CTA */
+.cta {
+  margin-top: auto;
+  background: #2c3d68; border-radius: 14px;
+  padding: 16px 22px; color: #fff;
+  display: flex; align-items: center; gap: 22px;
+}
+.cta .lf { flex: 1; }
+.cta .trial {
+  display: inline-block; background: #e5c274; color: #2c3d68;
+  font-size: 21px; font-weight: bold; padding: 6px 20px; border-radius: 26px;
+  margin-bottom: 10px;
+}
+.cta .tel { font-size: 50px; font-weight: bold; line-height: 1.1; letter-spacing: 0.01em; }
+.cta .tel span { font-size: 24px; }
+.cta .ad { font-size: 16px; color: #c3cde2; margin-top: 8px; line-height: 1.65; }
+.cta .teacher { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.cta .teacher img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #e5c274; }
+.cta .teacher span { font-size: 15px; color: #e8edf5; }
+.cta .qr { text-align: center; flex-shrink: 0; }
+.cta .qr img { width: 125px; height: 125px; background: #fff; border-radius: 9px; padding: 5px; display: block; }
+.cta .qr .lb { font-size: 14px; color: #c3cde2; margin-top: 6px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="head">
+    <img src="ロゴ/A4679C2D-61CD-4B9D-8ED3-A11739E8C9B1.jpeg" alt="原学習塾">
+    <div>
+      <div class="nm">原 学習塾</div>
+      <div class="sb">彦根市原町　小学生・中学生の少人数制学習塾</div>
+    </div>
+    <div class="yr">彦根で<b>27年</b></div>
+  </div>
+
+  <div class="catch">
+    <div class="pre">塾に通っても伸びなかった、そんなお子さんへ</div>
+    <h1>勉強が苦手でも、<em>大丈夫。</em></h1>
+    <div class="post">わからないところまで戻って、基礎からやり直せる塾です。</div>
+  </div>
+
+  <div class="recruit">
+    塾生 募集中
+    <span>無料体験・見学 受付中</span>
+  </div>
+
+  <div class="target">
+    小学4年生 〜 中学3年生<br>
+    <span>小学生：算数・英語　／　中学生：数学・英語・国語・理科・社会</span>
+  </div>
+
+  <div class="pts">
+    <div class="pt">
+      <div class="ic">👥</div>
+      <b>少人数制</b>
+      <span>質問しやすい環境で<br>一人ひとりに対応</span>
+    </div>
+    <div class="pt">
+      <div class="ic">📘</div>
+      <b>基礎からやり直せる</b>
+      <span>わからない所まで<br>戻って教えます</span>
+    </div>
+    <div class="pt">
+      <div class="ic">🎯</div>
+      <b>定期テスト対策</b>
+      <span>点数を上げたい子を<br>しっかりサポート</span>
+    </div>
+  </div>
+
+  <div class="price">
+    <div class="ph">月　謝</div>
+    <div class="pb">
+      <div class="pc">
+        <div class="gr">小学生</div>
+        <div class="am">8,000<small>円</small></div>
+        <div class="nt">1教科／月</div>
+      </div>
+      <div class="pc">
+        <div class="gr">中学生</div>
+        <div class="am">9,000<small>円〜</small></div>
+        <div class="nt">1教科／月　（2教科 16,000円）</div>
+      </div>
+    </div>
+    <div class="free">入学金は <b>0円</b>　※別途 教材費・事務費</div>
+  </div>
+
+  <div class="sched">
+    <div class="sh">時 間 割</div>
+    <table>
+      <tr><th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
+      <tr>
+        <td class="lb">小学生<br><small>18:00〜19:00</small></td>
+        <td>小6</td><td>小5</td><td>―</td><td>小6</td><td>小5</td><td>―</td>
+      </tr>
+      <tr>
+        <td class="lb">中学生 1限<br><small>19:15〜20:15</small></td>
+        <td>中1 英語</td><td>中3 英語</td><td>中2 英語</td><td>中1 英語</td><td>中3 英語</td><td>中2 英語</td>
+      </tr>
+      <tr>
+        <td class="lb">中学生 2限<br><small>20:15〜21:15</small></td>
+        <td>中1 数学</td><td>中3 数学</td><td>中2 数学</td><td>中1 数学</td><td>中3 数学</td><td>中2 数学</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="cta">
+    <div class="lf">
+      <span class="trial">まずはお気軽にお電話ください</span>
+      <div class="tel"><span>TEL</span> 0749-26-0020</div>
+      <div class="ad">滋賀県彦根市原町180-48　／　受付：授業日 午後5時〜</div>
+      <div class="teacher">
+        <img src="塾長紹介_円形.png" alt="塾長 米川惠三">
+        <span>塾長　米川 惠三　／　ホームページ　harajuku-hikone.github.io</span>
+      </div>
+    </div>
+    <div class="qr">
+      <img src="Line_QR.jpeg" alt="公式LINE QRコード">
+      <div class="lb">LINEでも<br>ご相談いただけます</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
