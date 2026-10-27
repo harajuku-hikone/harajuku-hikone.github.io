@@ -1003,3 +1003,31 @@ header.shrink img.header-logo { width: 44px; height: 44px; }
   .lead-text { font-size: 15px; }
   .page-cta .tel { font-size: 24px; }
 }
+
+/* ===== 料金の考え方（メッセージ） ===== */
+.why-price {
+  background: var(--light);
+  border-left: 5px solid var(--red);
+  border-radius: 14px;
+  padding: 24px 26px;
+  margin-top: 4px;
+}
+.why-price h3 {
+  font-size: 17px;
+  color: var(--navy);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+.why-price p { font-size: 15px; line-height: 2; margin-bottom: 14px; }
+.why-price p:last-child { margin-bottom: 0; }
+.why-price .sign {
+  text-align: right;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 16px;
+}
+@media (max-width: 600px) {
+  .why-price { padding: 20px 18px; }
+  .why-price h3 { font-size: 16px; }
+  .why-price p { font-size: 15px; line-height: 1.95; }
+}
