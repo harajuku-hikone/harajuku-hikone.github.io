@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>原学習塾 公式LINEのご案内</title>
+<style>
+@page { size: A4 portrait; margin: 14mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  color: #33302c;
+  line-height: 1.9;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheet {
+  width: 182mm;
+  margin: 0 auto;
+  padding: 4mm 0;
+}
+
+/* ヘッダー */
+.head {
+  border-bottom: 3px solid #2c3d68;
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+.head .name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3d68;
+  letter-spacing: 0.06em;
+}
+.head .sub {
+  font-size: 12px;
+  color: #7d766e;
+  margin-left: auto;
+}
+
+/* タイトル */
+h1 {
+  font-size: 25px;
+  text-align: center;
+  color: #2c3d68;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.lead {
+  text-align: center;
+  font-size: 14px;
+  color: #5b544c;
+  margin-bottom: 24px;
+}
+
+/* 本文 */
+.greet {
+  font-size: 14.5px;
+  margin-bottom: 20px;
+}
+
+/* 用途ボックス */
+.uses {
+  border: 2px solid #e3d9c8;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  background: #fdfaf5;
+}
+.uses h2 {
+  font-size: 15px;
+  color: #2c3d68;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+.uses ul { list-style: none; }
+.uses li {
+  font-size: 14px;
+  padding: 5px 0 5px 26px;
+  position: relative;
+}
+.uses li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #06C755;
+  font-weight: bold;
+}
+.uses li b { color: #2c3d68; }
+
+/* QRエリア */
+.qr-area {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 2px solid #06C755;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 22px;
+}
+.qr-area img {
+  width: 122px;
+  height: 122px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.qr-text .step-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #06C755;
+  margin-bottom: 8px;
+}
+.qr-text ol {
+  margin-left: 19px;
+  font-size: 13.5px;
+}
+.qr-text li { margin-bottom: 3px; }
+
+/* 補足 */
+.note {
+  font-size: 12.5px;
+  color: #6b645c;
+  background: #f6f3ee;
+  border-radius: 10px;
+  padding: 13px 18px;
+  margin-bottom: 22px;
+}
+.note b { color: #33302c; }
+
+/* 署名 */
+.sign {
+  text-align: right;
+  font-size: 13.5px;
+  line-height: 1.8;
+  border-top: 1px solid #e3d9c8;
+  padding-top: 14px;
+}
+.sign .juku { font-size: 15px; font-weight: bold; color: #2c3d68; }
+.sign .small { font-size: 12px; color: #7d766e; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="head">
+    <span class="name">原 学習塾</span>
+    <span class="sub">彦根市原町180-48　TEL 0749-26-0020</span>
+  </div>
+
+  <h1>公式LINE はじめました</h1>
+  <p class="lead">お休みのご連絡が、LINEでできるようになりました。</p>
+
+  <p class="greet">
+    保護者の皆さまへ<br>
+    いつもお世話になっております。<br>
+    このたび原学習塾では、公式LINEでのご連絡を始めました。
+    お電話がつながりにくい時間帯でも、LINEならいつでも送っていただけます。
+    よろしければ、ご登録をお願いいたします。
+  </p>
+
+  <div class="uses">
+    <h2>こんなときにお使いください</h2>
+    <ul>
+      <li><b>お休みのご連絡</b>　夜でも朝でも、気づいたときに送れます</li>
+      <li><b>急な休講・時間変更のお知らせ</b>　塾からご連絡します</li>
+      <li><b>テスト前の補習日程のお知らせ</b>　塾からご連絡します</li>
+      <li><b>ご相談・お問い合わせ</b>　お子さまのことで気になることがあれば、お気軽に</li>
+    </ul>
+  </div>
+
+  <div class="qr-area">
+    <img src="Line_QR.jpeg" alt="原学習塾 公式LINE QRコード">
+    <div class="qr-text">
+      <div class="step-title">かんたん3ステップで登録</div>
+      <ol>
+        <li>スマホのカメラ、またはLINEアプリを開く</li>
+        <li>左のQRコードを読み取る</li>
+        <li>「追加」を押して完了です</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>※</b> 登録されても、こちらに電話番号などが知られることはありません。<br>
+    <b>※</b> ご登録は任意です。これまで通りお電話でのご連絡でも、もちろん構いません。<br>
+    <b>※</b> メッセージは塾長が確認いたします。返信が遅くなることもございますが、ご了承ください。
+  </div>
+
+  <div class="sign">
+    <div class="juku">原 学習塾　塾長　米川 惠三</div>
+    <div class="small">滋賀県彦根市原町180-48　TEL 0749-26-0020</div>
+    <div class="small">ホームページ　https://harajuku-hikone.github.io/</div>
+  </div>
+
+</div>
+</body>
+</html>
